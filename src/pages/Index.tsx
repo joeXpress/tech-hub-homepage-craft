@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Switch } from '@/components/ui/switch';
 import { Moon, Sun } from 'lucide-react';
@@ -116,45 +115,46 @@ const Index = () => {
   }
 
   return (
-    <div className={`min-h-screen transition-all duration-500 ${isDarkMode ? 'dark bg-slate-900' : 'bg-white'}`}>
+    <div className={`min-h-screen transition-all duration-500 ${isDarkMode ? 'dark bg-slate-900' : 'bg-white'} relative`}>
+      {/* Dark Mode Toggle - Fixed Bottom Right */}
+      <div className="fixed bottom-6 right-6 z-50 bg-white dark:bg-slate-800 rounded-full p-3 shadow-lg border border-gray-200 dark:border-slate-700">
+        <div className="flex items-center space-x-2">
+          <Sun className={`h-4 w-4 ${isDarkMode ? 'text-gray-400' : 'text-orange-500'}`} />
+          <Switch
+            checked={isDarkMode}
+            onCheckedChange={setIsDarkMode}
+            className="data-[state=checked]:bg-orange-500"
+          />
+          <Moon className={`h-4 w-4 ${isDarkMode ? 'text-orange-500' : 'text-gray-400'}`} />
+        </div>
+      </div>
+
       {/* Header */}
-      <header className={`shadow-lg sticky top-0 z-40 transition-all duration-300 ${isDarkMode ? 'bg-slate-800 border-b border-slate-700' : 'bg-white'}`}>
-        <div className="container mx-auto px-4 py-4">
-          <div className="text-center mb-4">
-            <h1 className={`text-3xl font-bold transition-colors duration-300 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>
+      <header className={`shadow-lg sticky top-0 z-40 backdrop-blur-md transition-all duration-300 ${isDarkMode ? 'bg-slate-800/90 border-b border-slate-700' : 'bg-white/90'}`}>
+        <div className="container mx-auto px-4 py-6">
+          <div className="text-center mb-6">
+            <h1 className={`text-4xl font-bold transition-colors duration-300 bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent`}>
               JOE EXPRESS TECH HUB
             </h1>
           </div>
-          
-          {/* Dark Mode Toggle */}
-          <div className="flex justify-center mb-4">
-            <div className="flex items-center space-x-2">
-              <Sun className={`h-4 w-4 ${isDarkMode ? 'text-gray-400' : 'text-orange-500'}`} />
-              <Switch
-                checked={isDarkMode}
-                onCheckedChange={setIsDarkMode}
-                className="data-[state=checked]:bg-orange-500"
-              />
-              <Moon className={`h-4 w-4 ${isDarkMode ? 'text-orange-500' : 'text-gray-400'}`} />
-            </div>
-          </div>
 
-          {/* Navigation */}
+          {/* Navigation - Side by Side */}
           <nav className="block">
-            <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8">
-              <a href="#home" className={`font-medium transition-all duration-300 hover:scale-105 ${isDarkMode ? 'text-gray-300 hover:text-orange-400' : 'text-gray-700 hover:text-orange-600'}`}>
+            <div className="flex flex-wrap justify-center items-center gap-6 md:gap-8">
+              <a href="#home" className={`font-medium transition-all duration-300 hover:scale-105 px-3 py-2 rounded-lg ${isDarkMode ? 'text-gray-300 hover:text-orange-400 hover:bg-slate-700' : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'}`}>
                 Home
               </a>
-              <a href="#about" className={`font-medium transition-all duration-300 hover:scale-105 ${isDarkMode ? 'text-gray-300 hover:text-orange-400' : 'text-gray-700 hover:text-orange-600'}`}>
+              <a href="#about" className={`font-medium transition-all duration-300 hover:scale-105 px-3 py-2 rounded-lg ${isDarkMode ? 'text-gray-300 hover:text-orange-400 hover:bg-slate-700' : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'}`}>
                 About Us
               </a>
-              <a href="#programs" className={`font-medium transition-all duration-300 hover:scale-105 ${isDarkMode ? 'text-gray-300 hover:text-orange-400' : 'text-gray-700 hover:text-orange-600'}`}>
+              <a href="#programs" className={`font-medium transition-all duration-300 hover:scale-105 px-3 py-2 rounded-lg ${isDarkMode ? 'text-gray-300 hover:text-orange-400 hover:bg-slate-700' : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'}`}>
                 Programs
               </a>
-              <a href="#contact" className={`font-medium transition-all duration-300 hover:scale-105 ${isDarkMode ? 'text-gray-300 hover:text-orange-400' : 'text-gray-700 hover:text-orange-600'}`}>
+              <a href="#contact" className={`font-medium transition-all duration-300 hover:scale-105 px-3 py-2 rounded-lg ${isDarkMode ? 'text-gray-300 hover:text-orange-400 hover:bg-slate-700' : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'}`}>
                 Contact Us
               </a>
-              <button className="bg-orange-500 text-white px-6 py-2 rounded-lg hover:bg-orange-600 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+              {/* Contact Button - Hidden on small screens */}
+              <button className="hidden md:block bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-2 rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 hover:scale-105 hover:shadow-lg font-medium">
                 Contact Now
               </button>
             </div>
@@ -163,32 +163,33 @@ const Index = () => {
       </header>
 
       {/* Hero Slider */}
-      <section id="home" className="relative h-screen bg-gradient-to-r from-slate-900 to-blue-900 overflow-hidden">
+      <section id="home" className="relative h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 overflow-hidden">
         <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/20 via-slate-900/40 to-slate-900/60"></div>
           <img 
             src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1920&h=1080&fit=crop&overlay=gradient&opacity=30" 
             alt="Tech background" 
-            className="w-full h-full object-cover opacity-30"
+            className="w-full h-full object-cover opacity-20"
           />
         </div>
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center text-white px-4 max-w-4xl animate-fade-in">
-            <h2 className="text-4xl md:text-6xl font-bold mb-6 leading-tight animate-scale-in">
+          <div className="text-center text-white px-4 max-w-5xl animate-fade-in">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight animate-scale-in">
               {slides[currentSlide].title}
             </h2>
             {slides[currentSlide].subtitle && (
-              <p className="text-xl md:text-2xl mb-8 opacity-90 animate-slide-in-right">
+              <p className="text-lg md:text-xl lg:text-2xl mb-8 opacity-90 animate-slide-in-right max-w-4xl mx-auto">
                 {slides[currentSlide].subtitle}
               </p>
             )}
-            <div className="space-x-4 animate-fade-in" style={{animationDelay: '0.3s'}}>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{animationDelay: '0.3s'}}>
               {slides[currentSlide].buttons.map((button, index) => (
                 <button
                   key={index}
-                  className={`px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg ${
+                  className={`px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl text-lg ${
                     index === 0
-                      ? 'bg-orange-500 text-white hover:bg-orange-600'
-                      : 'border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white'
+                      ? 'bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:from-orange-600 hover:to-orange-700 shadow-lg'
+                      : 'border-2 border-orange-500 text-orange-400 hover:bg-orange-500 hover:text-white backdrop-blur-sm'
                   }`}
                 >
                   {button}
@@ -199,13 +200,13 @@ const Index = () => {
         </div>
         
         {/* Slider Dots */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2">
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3">
           {slides.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 hover:scale-125 ${
-                currentSlide === index ? 'bg-orange-500' : 'bg-white/50 hover:bg-white/70'
+              className={`w-4 h-4 rounded-full transition-all duration-300 hover:scale-125 ${
+                currentSlide === index ? 'bg-orange-500 shadow-lg' : 'bg-white/50 hover:bg-white/70'
               }`}
             />
           ))}
@@ -215,22 +216,28 @@ const Index = () => {
       {/* Mission and Vision */}
       <section className={`py-20 transition-colors duration-300 ${isDarkMode ? 'bg-slate-800' : 'bg-gray-50'}`}>
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12">
-            <div className="text-center transform hover:scale-105 transition-all duration-300">
+          <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            <div className={`text-center transform hover:scale-105 transition-all duration-300 p-8 rounded-2xl ${isDarkMode ? 'bg-slate-900/50 border border-slate-700' : 'bg-white shadow-lg'}`}>
+              <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-2xl">🎯</span>
+              </div>
               <h3 className={`text-3xl font-bold mb-6 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Our Mission</h3>
               <p className={`text-lg mb-8 leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                 To connect education and technology with innovative and practical tutoring that enhances tech skills....
               </p>
-              <button className="bg-orange-500 text-white px-8 py-3 rounded-lg hover:bg-orange-600 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+              <button className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-3 rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 hover:scale-105 hover:shadow-lg font-medium">
                 Learn More
               </button>
             </div>
-            <div className="text-center transform hover:scale-105 transition-all duration-300">
+            <div className={`text-center transform hover:scale-105 transition-all duration-300 p-8 rounded-2xl ${isDarkMode ? 'bg-slate-900/50 border border-slate-700' : 'bg-white shadow-lg'}`}>
+              <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-2xl">🚀</span>
+              </div>
               <h3 className={`text-3xl font-bold mb-6 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Our Vision</h3>
               <p className={`text-lg mb-8 leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                 Shaping the future of tech—raising brilliant minds and crafting skilled...
               </p>
-              <button className="bg-orange-500 text-white px-8 py-3 rounded-lg hover:bg-orange-600 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+              <button className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-3 rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 hover:scale-105 hover:shadow-lg font-medium">
                 Learn More
               </button>
             </div>
@@ -240,24 +247,29 @@ const Index = () => {
 
       {/* About Us */}
       <section id="about" className={`py-20 transition-colors duration-300 ${isDarkMode ? 'bg-slate-900' : 'bg-white'}`}>
-        <div className="container mx-auto px-4 max-w-4xl text-center">
-          <h2 className={`text-4xl font-bold mb-8 animate-fade-in ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>About Us</h2>
-          <div className="mb-8">
+        <div className="container mx-auto px-4 max-w-5xl text-center">
+          <h2 className={`text-4xl md:text-5xl font-bold mb-12 animate-fade-in ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>About Us</h2>
+          <div className="mb-12 relative group">
+            <div className="absolute -inset-1 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-300"></div>
             <img 
               src="https://images.unsplash.com/photo-1466442929976-97f336a657be?w=800&h=400&fit=crop" 
               alt="About us" 
-              className="w-full max-w-2xl mx-auto rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+              className="relative w-full max-w-3xl mx-auto rounded-lg shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105"
             />
           </div>
-          <p className={`text-lg mb-8 leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-            JE Tech Hub, officially launched February 2024, marking a new phase of growth and innovation to deliver top-tier tech solutions while empowering individuals and businesses with industry-leading skills.
-          </p>
-          <p className={`text-lg mb-8 leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-            Having several training programs ongoing and approximately 30 graduates...we believe in nurturing creativity, fostering growth, and equipping our community with practical skills to thrive in the digital era.
-          </p>
-          <button className="bg-orange-500 text-white px-8 py-3 rounded-lg hover:bg-orange-600 transition-all duration-300 hover:scale-105 hover:shadow-lg">
-            Get Started
-          </button>
+          <div className="space-y-6">
+            <p className={`text-lg leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+              JE Tech Hub, officially launched February 2024, marking a new phase of growth and innovation to deliver top-tier tech solutions while empowering individuals and businesses with industry-leading skills.
+            </p>
+            <p className={`text-lg leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+              Having several training programs ongoing and approximately 30 graduates...we believe in nurturing creativity, fostering growth, and equipping our community with practical skills to thrive in the digital era.
+            </p>
+          </div>
+          <div className="mt-10">
+            <button className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-10 py-4 rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 hover:scale-105 hover:shadow-xl font-medium text-lg">
+              Get Started
+            </button>
+          </div>
         </div>
       </section>
 
@@ -293,7 +305,7 @@ const Index = () => {
       <section id="programs" className={`py-20 transition-colors duration-300 ${isDarkMode ? 'bg-slate-900' : 'bg-white'}`}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className={`text-4xl font-bold mb-8 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Our Cutting-Edge Programs</h2>
+            <h2 className={`text-4xl md:text-5xl font-bold mb-8 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Our Cutting-Edge Programs</h2>
             <p className={`text-lg max-w-4xl mx-auto leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
               We provide practical experience and expert guidance across various tech-driven fields with several ongoing training programs empower you with the skills you need to excel. Check Out Our advanced IT training, software development courses and more.
             </p>
@@ -301,17 +313,18 @@ const Index = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {programs.map((program, index) => (
-              <div key={index} className={`rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-2 ${isDarkMode ? 'bg-slate-800 border border-slate-700' : 'bg-gray-50'}`}>
-                <div className="h-48 rounded-lg mb-6 overflow-hidden">
+              <div key={index} className={`group rounded-2xl p-6 transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:-translate-y-4 ${isDarkMode ? 'bg-slate-800 border border-slate-700 hover:border-orange-500/50' : 'bg-gray-50 hover:bg-white hover:shadow-xl'}`}>
+                <div className="h-52 rounded-xl mb-6 overflow-hidden relative">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent z-10"></div>
                   <img 
                     src={program.image} 
                     alt={program.title}
-                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
-                <h3 className={`text-xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>{program.title}</h3>
-                <p className={`mb-6 leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>{program.description}</p>
-                <button className="bg-orange-500 text-white px-6 py-2 rounded-lg hover:bg-orange-600 transition-all duration-300 hover:scale-105">
+                <h3 className={`text-xl font-bold mb-4 group-hover:text-orange-500 transition-colors duration-300 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>{program.title}</h3>
+                <p className={`mb-6 leading-relaxed text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>{program.description}</p>
+                <button className="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-3 rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 hover:scale-105 font-medium">
                   Learn More
                 </button>
               </div>
@@ -321,7 +334,7 @@ const Index = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-r from-slate-900 to-blue-900 text-white relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <img 
             src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1920&h=1080&fit=crop" 
