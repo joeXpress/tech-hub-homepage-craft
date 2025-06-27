@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Switch } from '@/components/ui/switch';
 import { Moon, Sun } from 'lucide-react';
@@ -414,7 +413,7 @@ const Index = () => {
           />
         </div>
         <nav className="nav-menu">
-          <a href="#home" className="active">Home</a>
+          <a href="#home" className={activeSection === 'home' ? 'active' : ''}>Home</a>
           <a href="#about">About Us</a>
           <a href="#programs">Programmes</a>
           <a href="#contact">Contact Us</a>
