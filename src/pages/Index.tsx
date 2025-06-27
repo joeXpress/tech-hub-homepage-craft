@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Switch } from '@/components/ui/switch';
 import { Moon, Sun } from 'lucide-react';
+import DeliveryBooking from '@/components/DeliveryBooking';
+import MessageViewer from '@/components/MessageViewer';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [activeSection, setActiveSection] = useState<'home' | 'delivery' | 'messages'>('home');
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -114,48 +117,153 @@ const Index = () => {
     );
   }
 
+  // If not on home section, show the appropriate component
+  if (activeSection === 'delivery') {
+    return (
+      <div className={`min-h-screen transition-all duration-500 ${isDarkMode ? 'dark bg-slate-900' : 'bg-white'}`}>
+        {/* Dark Mode Toggle */}
+        <div className="fixed bottom-4 right-4 z-50 bg-white dark:bg-slate-800 rounded-full p-1.5 shadow-lg border border-gray-200 dark:border-slate-700 hover:shadow-xl transition-all duration-300">
+          <div className="flex items-center space-x-1">
+            <Sun className={`h-2.5 w-2.5 ${isDarkMode ? 'text-gray-400' : 'text-orange-500'}`} />
+            <Switch
+              checked={isDarkMode}
+              onCheckedChange={setIsDarkMode}
+              className="data-[state=checked]:bg-orange-500 scale-50"
+            />
+            <Moon className={`h-2.5 w-2.5 ${isDarkMode ? 'text-orange-500' : 'text-gray-400'}`} />
+          </div>
+        </div>
+
+        {/* Header */}
+        <header className={`shadow-lg sticky top-0 z-40 backdrop-blur-md transition-all duration-500 animate-fade-in ${isDarkMode ? 'bg-slate-800/95 border-b border-slate-700' : 'bg-white/95'}`}>
+          <div className="container mx-auto px-4 py-2">
+            <div className="text-center mb-2">
+              <h1 className={`text-xl md:text-2xl font-bold transition-all duration-500 bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent hover:scale-105 transform cursor-pointer`}
+                  onClick={() => setActiveSection('home')}>
+                JOE EXPRESS TECH HUB
+              </h1>
+            </div>
+            <nav className="block">
+              <div className="flex justify-center items-center gap-2 md:gap-4 flex-nowrap overflow-x-auto scrollbar-hide">
+                <button onClick={() => setActiveSection('home')} className={`font-medium transition-all duration-300 hover:scale-105 px-2 md:px-3 py-1.5 rounded-lg whitespace-nowrap text-sm md:text-base ${isDarkMode ? 'text-gray-300 hover:text-orange-400 hover:bg-slate-700/50' : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'}`}>
+                  Home
+                </button>
+                <button onClick={() => setActiveSection('delivery')} className={`font-medium transition-all duration-300 hover:scale-105 px-2 md:px-3 py-1.5 rounded-lg whitespace-nowrap text-sm md:text-base ${activeSection === 'delivery' ? 'text-orange-500 bg-orange-50 dark:bg-slate-700' : isDarkMode ? 'text-gray-300 hover:text-orange-400 hover:bg-slate-700/50' : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'}`}>
+                  Delivery
+                </button>
+                <button onClick={() => setActiveSection('messages')} className={`font-medium transition-all duration-300 hover:scale-105 px-2 md:px-3 py-1.5 rounded-lg whitespace-nowrap text-sm md:text-base ${isDarkMode ? 'text-gray-300 hover:text-orange-400 hover:bg-slate-700/50' : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'}`}>
+                  Messages
+                </button>
+                <button className="hidden lg:block bg-gradient-to-r from-orange-500 to-orange-600 text-white px-3 py-1.5 rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 hover:scale-105 hover:shadow-lg font-medium text-sm shadow-md">
+                  Contact Now
+                </button>
+              </div>
+            </nav>
+          </div>
+        </header>
+
+        <div className="pt-8">
+          <DeliveryBooking isDarkMode={isDarkMode} />
+        </div>
+      </div>
+    );
+  }
+
+  if (activeSection === 'messages') {
+    return (
+      <div className={`min-h-screen transition-all duration-500 ${isDarkMode ? 'dark bg-slate-900' : 'bg-white'}`}>
+        {/* Dark Mode Toggle */}
+        <div className="fixed bottom-4 right-4 z-50 bg-white dark:bg-slate-800 rounded-full p-1.5 shadow-lg border border-gray-200 dark:border-slate-700 hover:shadow-xl transition-all duration-300">
+          <div className="flex items-center space-x-1">
+            <Sun className={`h-2.5 w-2.5 ${isDarkMode ? 'text-gray-400' : 'text-orange-500'}`} />
+            <Switch
+              checked={isDarkMode}
+              onCheckedChange={setIsDarkMode}
+              className="data-[state=checked]:bg-orange-500 scale-50"
+            />
+            <Moon className={`h-2.5 w-2.5 ${isDarkMode ? 'text-orange-500' : 'text-gray-400'}`} />
+          </div>
+        </div>
+
+        {/* Header */}
+        <header className={`shadow-lg sticky top-0 z-40 backdrop-blur-md transition-all duration-500 animate-fade-in ${isDarkMode ? 'bg-slate-800/95 border-b border-slate-700' : 'bg-white/95'}`}>
+          <div className="container mx-auto px-4 py-2">
+            <div className="text-center mb-2">
+              <h1 className={`text-xl md:text-2xl font-bold transition-all duration-500 bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent hover:scale-105 transform cursor-pointer`}
+                  onClick={() => setActiveSection('home')}>
+                JOE EXPRESS TECH HUB
+              </h1>
+            </div>
+            <nav className="block">
+              <div className="flex justify-center items-center gap-2 md:gap-4 flex-nowrap overflow-x-auto scrollbar-hide">
+                <button onClick={() => setActiveSection('home')} className={`font-medium transition-all duration-300 hover:scale-105 px-2 md:px-3 py-1.5 rounded-lg whitespace-nowrap text-sm md:text-base ${isDarkMode ? 'text-gray-300 hover:text-orange-400 hover:bg-slate-700/50' : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'}`}>
+                  Home
+                </button>
+                <button onClick={() => setActiveSection('delivery')} className={`font-medium transition-all duration-300 hover:scale-105 px-2 md:px-3 py-1.5 rounded-lg whitespace-nowrap text-sm md:text-base ${isDarkMode ? 'text-gray-300 hover:text-orange-400 hover:bg-slate-700/50' : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'}`}>
+                  Delivery
+                </button>
+                <button onClick={() => setActiveSection('messages')} className={`font-medium transition-all duration-300 hover:scale-105 px-2 md:px-3 py-1.5 rounded-lg whitespace-nowrap text-sm md:text-base ${activeSection === 'messages' ? 'text-orange-500 bg-orange-50 dark:bg-slate-700' : isDarkMode ? 'text-gray-300 hover:text-orange-400 hover:bg-slate-700/50' : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'}`}>
+                  Messages
+                </button>
+                <button className="hidden lg:block bg-gradient-to-r from-orange-500 to-orange-600 text-white px-3 py-1.5 rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 hover:scale-105 hover:shadow-lg font-medium text-sm shadow-md">
+                  Contact Now
+                </button>
+              </div>
+            </nav>
+          </div>
+        </header>
+
+        <div className="pt-8">
+          <MessageViewer isDarkMode={isDarkMode} />
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className={`min-h-screen transition-all duration-500 ${isDarkMode ? 'dark bg-slate-900' : 'bg-white'} relative`}>
-      {/* Dark Mode Toggle - Fixed Bottom Right - Smaller */}
-      <div className="fixed bottom-4 right-4 z-50 bg-white dark:bg-slate-800 rounded-full p-2 shadow-lg border border-gray-200 dark:border-slate-700 hover:shadow-xl transition-all duration-300">
+      {/* Dark Mode Toggle */}
+      <div className="fixed bottom-4 right-4 z-50 bg-white dark:bg-slate-800 rounded-full p-1.5 shadow-lg border border-gray-200 dark:border-slate-700 hover:shadow-xl transition-all duration-300">
         <div className="flex items-center space-x-1">
-          <Sun className={`h-3 w-3 ${isDarkMode ? 'text-gray-400' : 'text-orange-500'}`} />
+          <Sun className={`h-2.5 w-2.5 ${isDarkMode ? 'text-gray-400' : 'text-orange-500'}`} />
           <Switch
             checked={isDarkMode}
             onCheckedChange={setIsDarkMode}
-            className="data-[state=checked]:bg-orange-500 scale-75"
+            className="data-[state=checked]:bg-orange-500 scale-50"
           />
-          <Moon className={`h-3 w-3 ${isDarkMode ? 'text-orange-500' : 'text-gray-400'}`} />
+          <Moon className={`h-2.5 w-2.5 ${isDarkMode ? 'text-orange-500' : 'text-gray-400'}`} />
         </div>
       </div>
 
-      {/* Header - Shorter with Animation */}
+      {/* Header */}
       <header className={`shadow-lg sticky top-0 z-40 backdrop-blur-md transition-all duration-500 animate-fade-in ${isDarkMode ? 'bg-slate-800/95 border-b border-slate-700' : 'bg-white/95'}`}>
-        <div className="container mx-auto px-4 py-3">
-          {/* Logo - Compact */}
-          <div className="text-center mb-3">
-            <h1 className={`text-2xl md:text-3xl font-bold transition-all duration-500 bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent hover:scale-105 transform`}>
+        <div className="container mx-auto px-4 py-2">
+          <div className="text-center mb-2">
+            <h1 className={`text-xl md:text-2xl font-bold transition-all duration-500 bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent hover:scale-105 transform cursor-pointer`}>
               JOE EXPRESS TECH HUB
             </h1>
           </div>
-
-          {/* Navigation - No Wrap, Professional */}
           <nav className="block">
-            <div className="flex justify-center items-center gap-3 md:gap-6 flex-nowrap overflow-x-auto scrollbar-hide">
-              <a href="#home" className={`font-medium transition-all duration-300 hover:scale-105 px-2 md:px-3 py-2 rounded-lg whitespace-nowrap text-sm md:text-base ${isDarkMode ? 'text-gray-300 hover:text-orange-400 hover:bg-slate-700/50' : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'}`}>
+            <div className="flex justify-center items-center gap-2 md:gap-4 flex-nowrap overflow-x-auto scrollbar-hide">
+              <a href="#home" className={`font-medium transition-all duration-300 hover:scale-105 px-2 md:px-3 py-1.5 rounded-lg whitespace-nowrap text-sm md:text-base ${isDarkMode ? 'text-gray-300 hover:text-orange-400 hover:bg-slate-700/50' : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'}`}>
                 Home
               </a>
-              <a href="#about" className={`font-medium transition-all duration-300 hover:scale-105 px-2 md:px-3 py-2 rounded-lg whitespace-nowrap text-sm md:text-base ${isDarkMode ? 'text-gray-300 hover:text-orange-400 hover:bg-slate-700/50' : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'}`}>
+              <a href="#about" className={`font-medium transition-all duration-300 hover:scale-105 px-2 md:px-3 py-1.5 rounded-lg whitespace-nowrap text-sm md:text-base ${isDarkMode ? 'text-gray-300 hover:text-orange-400 hover:bg-slate-700/50' : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'}`}>
                 About Us
               </a>
-              <a href="#programs" className={`font-medium transition-all duration-300 hover:scale-105 px-2 md:px-3 py-2 rounded-lg whitespace-nowrap text-sm md:text-base ${isDarkMode ? 'text-gray-300 hover:text-orange-400 hover:bg-slate-700/50' : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'}`}>
+              <a href="#programs" className={`font-medium transition-all duration-300 hover:scale-105 px-2 md:px-3 py-1.5 rounded-lg whitespace-nowrap text-sm md:text-base ${isDarkMode ? 'text-gray-300 hover:text-orange-400 hover:bg-slate-700/50' : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'}`}>
                 Programs
               </a>
-              <a href="#contact" className={`font-medium transition-all duration-300 hover:scale-105 px-2 md:px-3 py-2 rounded-lg whitespace-nowrap text-sm md:text-base ${isDarkMode ? 'text-gray-300 hover:text-orange-400 hover:bg-slate-700/50' : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'}`}>
+              <button onClick={() => setActiveSection('delivery')} className={`font-medium transition-all duration-300 hover:scale-105 px-2 md:px-3 py-1.5 rounded-lg whitespace-nowrap text-sm md:text-base ${isDarkMode ? 'text-gray-300 hover:text-orange-400 hover:bg-slate-700/50' : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'}`}>
+                Delivery
+              </button>
+              <button onClick={() => setActiveSection('messages')} className={`font-medium transition-all duration-300 hover:scale-105 px-2 md:px-3 py-1.5 rounded-lg whitespace-nowrap text-sm md:text-base ${isDarkMode ? 'text-gray-300 hover:text-orange-400 hover:bg-slate-700/50' : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'}`}>
+                Messages
+              </button>
+              <a href="#contact" className={`font-medium transition-all duration-300 hover:scale-105 px-2 md:px-3 py-1.5 rounded-lg whitespace-nowrap text-sm md:text-base ${isDarkMode ? 'text-gray-300 hover:text-orange-400 hover:bg-slate-700/50' : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'}`}>
                 Contact Us
               </a>
-              {/* Contact Button - Hidden on small screens, Professional Design */}
-              <button className="hidden lg:block bg-gradient-to-r from-orange-500 to-orange-600 text-white px-4 py-2 rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 hover:scale-105 hover:shadow-lg font-medium text-sm shadow-md">
+              <button className="hidden lg:block bg-gradient-to-r from-orange-500 to-orange-600 text-white px-3 py-1.5 rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 hover:scale-105 hover:shadow-lg font-medium text-sm shadow-md">
                 Contact Now
               </button>
             </div>
@@ -163,7 +271,7 @@ const Index = () => {
         </div>
       </header>
 
-      {/* Hero Slider - Enhanced Professional Look */}
+      {/* Hero Slider - Enhanced for larger screens */}
       <section id="home" className="relative h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/30 via-slate-900/50 to-slate-900/70"></div>
@@ -174,12 +282,12 @@ const Index = () => {
           />
         </div>
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center text-white px-4 max-w-6xl animate-fade-in">
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight animate-scale-in">
+          <div className="text-center text-white px-4 max-w-7xl animate-fade-in">
+            <h2 className="text-3xl md:text-5xl lg:text-7xl xl:text-8xl font-bold mb-6 leading-tight animate-scale-in">
               {slides[currentSlide].title}
             </h2>
             {slides[currentSlide].subtitle && (
-              <p className="text-lg md:text-xl lg:text-2xl mb-8 opacity-90 animate-slide-in-right max-w-4xl mx-auto leading-relaxed">
+              <p className="text-lg md:text-xl lg:text-3xl xl:text-4xl mb-8 opacity-90 animate-slide-in-right max-w-5xl mx-auto leading-relaxed">
                 {slides[currentSlide].subtitle}
               </p>
             )}
@@ -187,7 +295,7 @@ const Index = () => {
               {slides[currentSlide].buttons.map((button, index) => (
                 <button
                   key={index}
-                  className={`px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl text-lg ${
+                  className={`px-8 py-4 lg:px-12 lg:py-6 rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl text-lg lg:text-xl ${
                     index === 0
                       ? 'bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:from-orange-600 hover:to-orange-700 shadow-lg'
                       : 'border-2 border-orange-500 text-orange-400 hover:bg-orange-500 hover:text-white backdrop-blur-sm'
@@ -200,7 +308,6 @@ const Index = () => {
           </div>
         </div>
         
-        {/* Slider Dots - Enhanced */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3">
           {slides.map((_, index) => (
             <button
@@ -214,31 +321,31 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Mission and Vision - Enhanced Professional Design */}
-      <section className={`py-16 transition-colors duration-300 ${isDarkMode ? 'bg-slate-800' : 'bg-gray-50'}`}>
+      {/* Mission and Vision - Enhanced for larger screens */}
+      <section className={`py-16 lg:py-24 transition-colors duration-300 ${isDarkMode ? 'bg-slate-800' : 'bg-gray-50'}`}>
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            <div className={`text-center transform hover:scale-105 transition-all duration-500 p-8 rounded-2xl ${isDarkMode ? 'bg-slate-900/50 border border-slate-700/50 shadow-2xl' : 'bg-white shadow-xl hover:shadow-2xl'}`}>
-              <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                <span className="text-2xl">🎯</span>
+          <div className="grid lg:grid-cols-2 xl:grid-cols-2 gap-8 lg:gap-12 max-w-7xl mx-auto">
+            <div className={`text-center transform hover:scale-105 transition-all duration-500 p-8 lg:p-12 rounded-2xl ${isDarkMode ? 'bg-slate-900/50 border border-slate-700/50 shadow-2xl' : 'bg-white shadow-xl hover:shadow-2xl'}`}>
+              <div className="w-16 h-16 lg:w-20 lg:h-20 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                <span className="text-2xl lg:text-3xl">🎯</span>
               </div>
-              <h3 className={`text-3xl font-bold mb-6 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Our Mission</h3>
-              <p className={`text-lg mb-8 leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+              <h3 className={`text-3xl lg:text-4xl font-bold mb-6 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Our Mission</h3>
+              <p className={`text-lg lg:text-xl mb-8 leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                 To connect education and technology with innovative and practical tutoring that enhances tech skills....
               </p>
-              <button className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-3 rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 hover:scale-105 hover:shadow-lg font-medium">
+              <button className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-3 lg:px-10 lg:py-4 rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 hover:scale-105 hover:shadow-lg font-medium text-lg">
                 Learn More
               </button>
             </div>
-            <div className={`text-center transform hover:scale-105 transition-all duration-500 p-8 rounded-2xl ${isDarkMode ? 'bg-slate-900/50 border border-slate-700/50 shadow-2xl' : 'bg-white shadow-xl hover:shadow-2xl'}`}>
-              <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                <span className="text-2xl">🚀</span>
+            <div className={`text-center transform hover:scale-105 transition-all duration-500 p-8 lg:p-12 rounded-2xl ${isDarkMode ? 'bg-slate-900/50 border border-slate-700/50 shadow-2xl' : 'bg-white shadow-xl hover:shadow-2xl'}`}>
+              <div className="w-16 h-16 lg:w-20 lg:h-20 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                <span className="text-2xl lg:text-3xl">🚀</span>
               </div>
-              <h3 className={`text-3xl font-bold mb-6 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Our Vision</h3>
-              <p className={`text-lg mb-8 leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+              <h3 className={`text-3xl lg:text-4xl font-bold mb-6 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Our Vision</h3>
+              <p className={`text-lg lg:text-xl mb-8 leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                 Shaping the future of tech—raising brilliant minds and crafting skilled...
               </p>
-              <button className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-3 rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 hover:scale-105 hover:shadow-lg font-medium">
+              <button className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-3 lg:px-10 lg:py-4 rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 hover:scale-105 hover:shadow-lg font-medium text-lg">
                 Learn More
               </button>
             </div>
@@ -247,27 +354,27 @@ const Index = () => {
       </section>
 
       {/* About Us */}
-      <section id="about" className={`py-20 transition-colors duration-300 ${isDarkMode ? 'bg-slate-900' : 'bg-white'}`}>
-        <div className="container mx-auto px-4 max-w-5xl text-center">
-          <h2 className={`text-4xl md:text-5xl font-bold mb-12 animate-fade-in ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>About Us</h2>
-          <div className="mb-12 relative group">
+      <section id="about" className={`py-20 lg:py-32 transition-colors duration-300 ${isDarkMode ? 'bg-slate-900' : 'bg-white'}`}>
+        <div className="container mx-auto px-4 max-w-6xl lg:max-w-7xl text-center">
+          <h2 className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-12 lg:mb-16 animate-fade-in ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>About Us</h2>
+          <div className="mb-12 lg:mb-16 relative group">
             <div className="absolute -inset-1 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-300"></div>
             <img 
               src="https://images.unsplash.com/photo-1466442929976-97f336a657be?w=800&h=400&fit=crop" 
               alt="About us" 
-              className="relative w-full max-w-3xl mx-auto rounded-lg shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105"
+              className="relative w-full max-w-4xl lg:max-w-5xl mx-auto rounded-lg shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105"
             />
           </div>
-          <div className="space-y-6">
-            <p className={`text-lg leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+          <div className="space-y-6 lg:space-y-8 max-w-5xl mx-auto">
+            <p className={`text-lg lg:text-xl leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
               JE Tech Hub, officially launched February 2024, marking a new phase of growth and innovation to deliver top-tier tech solutions while empowering individuals and businesses with industry-leading skills.
             </p>
-            <p className={`text-lg leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+            <p className={`text-lg lg:text-xl leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
               Having several training programs ongoing and approximately 30 graduates...we believe in nurturing creativity, fostering growth, and equipping our community with practical skills to thrive in the digital era.
             </p>
           </div>
-          <div className="mt-10">
-            <button className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-10 py-4 rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 hover:scale-105 hover:shadow-xl font-medium text-lg">
+          <div className="mt-10 lg:mt-12">
+            <button className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-10 py-4 lg:px-12 lg:py-5 rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 hover:scale-105 hover:shadow-xl font-medium text-lg lg:text-xl">
               Get Started
             </button>
           </div>
@@ -275,47 +382,47 @@ const Index = () => {
       </section>
 
       {/* What We Offer */}
-      <section className={`py-20 transition-colors duration-300 ${isDarkMode ? 'bg-slate-800' : 'bg-gray-50'}`}>
-        <div className="container mx-auto px-4 max-w-4xl">
-          <h2 className={`text-4xl font-bold mb-8 text-center ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>What We Offer</h2>
+      <section className={`py-20 lg:py-32 transition-colors duration-300 ${isDarkMode ? 'bg-slate-800' : 'bg-gray-50'}`}>
+        <div className="container mx-auto px-4 max-w-5xl lg:max-w-6xl">
+          <h2 className={`text-4xl lg:text-5xl font-bold mb-8 lg:mb-12 text-center ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>What We Offer</h2>
           
-          <div className="text-center mb-12">
-            <p className={`text-xl font-semibold mb-6 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>
+          <div className="text-center mb-12 lg:mb-16">
+            <p className={`text-xl lg:text-2xl font-semibold mb-6 lg:mb-8 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>
               Hands-on training and innovative solutions.
             </p>
-            <p className={`text-lg mb-8 leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+            <p className={`text-lg lg:text-xl mb-8 lg:mb-10 leading-relaxed max-w-4xl mx-auto ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
               Operating under the umbrella of JE Gadgets, our parent brand, which specializes in gadget sales, repairs, and swaps. We pride ourselves on being a leading tech education center that empowers individuals to transform their ideas into impactful, actionable opportunities.
             </p>
-            <button className="bg-green-600 text-white px-8 py-3 rounded-lg hover:bg-green-700 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+            <button className="bg-green-600 text-white px-8 py-3 lg:px-10 lg:py-4 rounded-lg hover:bg-green-700 transition-all duration-300 hover:scale-105 hover:shadow-lg text-lg">
               JE Gadgets
             </button>
           </div>
 
           <div className="text-center">
-            <p className={`text-lg mb-8 leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+            <p className={`text-lg lg:text-xl mb-8 lg:mb-10 leading-relaxed max-w-4xl mx-auto ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
               Whether you're an entrepreneur looking to scale, a tech enthusiast eager to explore new frontiers, or someone seeking to upskill, we offer the knowledge, tools, and mentorship to help you thrive in the ever-evolving digital landscape.
             </p>
-            <button className="bg-orange-500 text-white px-8 py-3 rounded-lg hover:bg-orange-600 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+            <button className="bg-orange-500 text-white px-8 py-3 lg:px-10 lg:py-4 rounded-lg hover:bg-orange-600 transition-all duration-300 hover:scale-105 hover:shadow-lg text-lg">
               Join Us
             </button>
           </div>
         </div>
       </section>
 
-      {/* Programs */}
-      <section id="programs" className={`py-20 transition-colors duration-300 ${isDarkMode ? 'bg-slate-900' : 'bg-white'}`}>
+      {/* Programs - Enhanced grid for larger screens */}
+      <section id="programs" className={`py-20 lg:py-32 transition-colors duration-300 ${isDarkMode ? 'bg-slate-900' : 'bg-white'}`}>
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className={`text-4xl md:text-5xl font-bold mb-8 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Our Cutting-Edge Programs</h2>
-            <p className={`text-lg max-w-4xl mx-auto leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+          <div className="text-center mb-16 lg:mb-20">
+            <h2 className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-8 lg:mb-10 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Our Cutting-Edge Programs</h2>
+            <p className={`text-lg lg:text-xl max-w-5xl mx-auto leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
               We provide practical experience and expert guidance across various tech-driven fields with several ongoing training programs empower you with the skills you need to excel. Check Out Our advanced IT training, software development courses and more.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 lg:gap-10">
             {programs.map((program, index) => (
-              <div key={index} className={`group rounded-2xl p-6 transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:-translate-y-4 ${isDarkMode ? 'bg-slate-800 border border-slate-700 hover:border-orange-500/50' : 'bg-gray-50 hover:bg-white hover:shadow-xl'}`}>
-                <div className="h-52 rounded-xl mb-6 overflow-hidden relative">
+              <div key={index} className={`group rounded-2xl p-6 lg:p-8 transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:-translate-y-4 ${isDarkMode ? 'bg-slate-800 border border-slate-700 hover:border-orange-500/50' : 'bg-gray-50 hover:bg-white hover:shadow-xl'}`}>
+                <div className="h-52 lg:h-60 rounded-xl mb-6 overflow-hidden relative">
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent z-10"></div>
                   <img 
                     src={program.image} 
@@ -323,9 +430,9 @@ const Index = () => {
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
-                <h3 className={`text-xl font-bold mb-4 group-hover:text-orange-500 transition-colors duration-300 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>{program.title}</h3>
-                <p className={`mb-6 leading-relaxed text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>{program.description}</p>
-                <button className="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-3 rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 hover:scale-105 font-medium">
+                <h3 className={`text-xl lg:text-2xl font-bold mb-4 group-hover:text-orange-500 transition-colors duration-300 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>{program.title}</h3>
+                <p className={`mb-6 leading-relaxed text-sm lg:text-base ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>{program.description}</p>
+                <button className="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-3 lg:py-4 rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 hover:scale-105 font-medium text-lg">
                   Learn More
                 </button>
               </div>
@@ -335,7 +442,7 @@ const Index = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 text-white relative overflow-hidden">
+      <section className="py-20 lg:py-32 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <img 
             src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1920&h=1080&fit=crop" 
@@ -343,41 +450,45 @@ const Index = () => {
             className="w-full h-full object-cover"
           />
         </div>
-        <div className="container mx-auto px-4 text-center max-w-4xl relative z-10">
-          <h2 className="text-4xl font-bold mb-8 animate-fade-in">Ready to Elevate Your Skills?</h2>
-          <p className="text-lg mb-6 leading-relaxed">
-            Whether you're interested in web development, graphic design, data analysis, or other innovative sectors, our tailored courses equip you with the skills needed to excel in today's fast-paced digital landscape.
-          </p>
-          <p className="text-lg mb-6 leading-relaxed">
-            Our mission goes beyond education—we aim to cultivate a creative, entrepreneurial mindset that prepares you for the future of technology.
-          </p>
-          <p className="text-lg mb-8 leading-relaxed">
-            Join a community of like-minded learners and industry professionals who are passionate about technology and personal growth. Get the skills, mentorship, and resources you need to thrive in today's digital world.
-          </p>
-          <button className="bg-orange-500 text-white px-8 py-3 rounded-lg hover:bg-orange-600 transition-all duration-300 hover:scale-105 hover:shadow-lg font-semibold">
+        <div className="container mx-auto px-4 text-center max-w-5xl lg:max-w-6xl relative z-10">
+          <h2 className="text-4xl lg:text-5xl font-bold mb-8 lg:mb-10 animate-fade-in">Ready to Elevate Your Skills?</h2>
+          <div className="space-y-6 lg:space-y-8 text-lg lg:text-xl leading-relaxed">
+            <p>
+              Whether you're interested in web development, graphic design, data analysis, or other innovative sectors, our tailored courses equip you with the skills needed to excel in today's fast-paced digital landscape.
+            </p>
+            <p>
+              Our mission goes beyond education—we aim to cultivate a creative, entrepreneurial mindset that prepares you for the future of technology.
+            </p>
+            <p>
+              Join a community of like-minded learners and industry professionals who are passionate about technology and personal growth. Get the skills, mentorship, and resources you need to thrive in today's digital world.
+            </p>
+          </div>
+          <button className="bg-orange-500 text-white px-8 py-3 lg:px-12 lg:py-5 rounded-lg hover:bg-orange-600 transition-all duration-300 hover:scale-105 hover:shadow-lg font-semibold text-lg lg:text-xl mt-8 lg:mt-10">
             Get Started
           </button>
         </div>
       </section>
 
       {/* Delivery Services */}
-      <section className={`py-20 transition-colors duration-300 ${isDarkMode ? 'bg-slate-800' : 'bg-gray-50'}`}>
-        <div className="container mx-auto px-4 max-w-4xl">
-          <h2 className={`text-4xl font-bold mb-8 text-center ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Delivery Services</h2>
+      <section className={`py-20 lg:py-32 transition-colors duration-300 ${isDarkMode ? 'bg-slate-800' : 'bg-gray-50'}`}>
+        <div className="container mx-auto px-4 max-w-5xl lg:max-w-6xl">
+          <h2 className={`text-4xl lg:text-5xl font-bold mb-8 lg:mb-12 text-center ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Delivery Services</h2>
           
-          <div className="text-center mb-12">
-            <p className={`text-xl font-semibold mb-6 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>
+          <div className="text-center mb-12 lg:mb-16">
+            <p className={`text-xl lg:text-2xl font-semibold mb-6 lg:mb-8 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>
               We Also Offer reliable delivery services.
             </p>
-            <p className={`text-lg mb-6 leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-              Explore the world of logistics and deliveries. Learn how to start and operate a successful delivery business, optimize routes, manage orders, and use digital tools to ensure fast and efficient deliveries for e-commerce, food, and courier services.
-            </p>
-            <p className={`text-lg mb-8 leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-              Whether you are purchasing or whatever—we ensure that everything arrives at your doorstep or your preferred location.
-            </p>
+            <div className="space-y-6 lg:space-y-8 text-lg lg:text-xl leading-relaxed max-w-4xl mx-auto">
+              <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                Explore the world of logistics and deliveries. Learn how to start and operate a successful delivery business, optimize routes, manage orders, and use digital tools to ensure fast and efficient deliveries for e-commerce, food, and courier services.
+              </p>
+              <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                Whether you are purchasing or whatever—we ensure that everything arrives at your doorstep or your preferred location.
+              </p>
+            </div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 lg:gap-6 mb-8 lg:mb-12">
             {[
               "Door-To-Door Delivery",
               "Office Delivery", 
@@ -386,14 +497,17 @@ const Index = () => {
               "Motor Park Dropoff",
               "Mail Pockets"
             ].map((service, index) => (
-              <div key={index} className={`p-4 rounded-lg shadow text-center transition-all duration-300 hover:scale-105 hover:shadow-lg ${isDarkMode ? 'bg-slate-900 border border-slate-700' : 'bg-white'}`}>
-                <span className={`font-medium ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>{service}</span>
+              <div key={index} className={`p-4 lg:p-6 rounded-lg shadow text-center transition-all duration-300 hover:scale-105 hover:shadow-lg ${isDarkMode ? 'bg-slate-900 border border-slate-700' : 'bg-white'}`}>
+                <span className={`font-medium text-sm lg:text-base ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>{service}</span>
               </div>
             ))}
           </div>
 
           <div className="text-center">
-            <button className="bg-green-600 text-white px-8 py-3 rounded-lg hover:bg-green-700 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+            <button 
+              onClick={() => setActiveSection('delivery')}
+              className="bg-green-600 text-white px-8 py-3 lg:px-10 lg:py-4 rounded-lg hover:bg-green-700 transition-all duration-300 hover:scale-105 hover:shadow-lg text-lg"
+            >
               Book Now
             </button>
           </div>
@@ -401,18 +515,18 @@ const Index = () => {
       </section>
 
       {/* Testimonials */}
-      <section className={`py-20 transition-colors duration-300 ${isDarkMode ? 'bg-slate-900' : 'bg-white'}`}>
+      <section className={`py-20 lg:py-32 transition-colors duration-300 ${isDarkMode ? 'bg-slate-900' : 'bg-white'}`}>
         <div className="container mx-auto px-4">
-          <h2 className={`text-4xl font-bold mb-16 text-center ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Testimonials</h2>
+          <h2 className={`text-4xl lg:text-5xl font-bold mb-16 lg:mb-20 text-center ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Testimonials</h2>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
             {testimonials.map((testimonial, index) => (
-              <div key={index} className={`rounded-lg p-6 transition-all duration-300 hover:scale-105 hover:shadow-xl ${isDarkMode ? 'bg-slate-800 border border-slate-700' : 'bg-gray-50'}`}>
-                <p className={`mb-6 leading-relaxed italic ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+              <div key={index} className={`rounded-lg p-6 lg:p-8 transition-all duration-300 hover:scale-105 hover:shadow-xl ${isDarkMode ? 'bg-slate-800 border border-slate-700' : 'bg-gray-50'}`}>
+                <p className={`mb-6 leading-relaxed italic text-lg ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                   "{testimonial.text}"
                 </p>
                 <div className={`border-t pt-4 ${isDarkMode ? 'border-slate-600' : 'border-gray-200'}`}>
-                  <h4 className={`font-bold ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>{testimonial.name}</h4>
+                  <h4 className={`font-bold text-lg ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>{testimonial.name}</h4>
                   <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>{testimonial.date}</p>
                 </div>
               </div>
@@ -422,61 +536,61 @@ const Index = () => {
       </section>
 
       {/* Contact Form */}
-      <section id="contact" className={`py-20 transition-colors duration-300 ${isDarkMode ? 'bg-slate-800' : 'bg-gray-50'}`}>
-        <div className="container mx-auto px-4 max-w-2xl">
-          <h2 className={`text-4xl font-bold mb-8 text-center ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Contact Us</h2>
+      <section id="contact" className={`py-20 lg:py-32 transition-colors duration-300 ${isDarkMode ? 'bg-slate-800' : 'bg-gray-50'}`}>
+        <div className="container mx-auto px-4 max-w-3xl lg:max-w-4xl">
+          <h2 className={`text-4xl lg:text-5xl font-bold mb-8 lg:mb-12 text-center ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Contact Us</h2>
           
-          <form onSubmit={handleSubmit} className={`rounded-lg p-8 shadow-lg transition-all duration-300 ${isDarkMode ? 'bg-slate-900 border border-slate-700' : 'bg-white'}`}>
-            <div className="grid md:grid-cols-2 gap-6 mb-6">
+          <form onSubmit={handleSubmit} className={`rounded-lg p-8 lg:p-12 shadow-lg transition-all duration-300 ${isDarkMode ? 'bg-slate-900 border border-slate-700' : 'bg-white'}`}>
+            <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mb-6 lg:mb-8">
               <div>
-                <label className={`block font-medium mb-2 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>Full Name</label>
+                <label className={`block font-medium mb-2 text-lg ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>Full Name</label>
                 <input 
                   type="text" 
                   required 
-                  className={`w-full p-3 border rounded-lg transition-all duration-300 focus:ring-2 focus:ring-orange-500 focus:border-transparent ${isDarkMode ? 'bg-slate-800 border-slate-600 text-white' : 'border-gray-300'}`}
+                  className={`w-full p-3 lg:p-4 border rounded-lg transition-all duration-300 focus:ring-2 focus:ring-orange-500 focus:border-transparent text-lg ${isDarkMode ? 'bg-slate-800 border-slate-600 text-white' : 'border-gray-300'}`}
                 />
               </div>
               <div>
-                <label className={`block font-medium mb-2 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>Email Address</label>
+                <label className={`block font-medium mb-2 text-lg ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>Email Address</label>
                 <input 
                   type="email" 
                   required 
-                  className={`w-full p-3 border rounded-lg transition-all duration-300 focus:ring-2 focus:ring-orange-500 focus:border-transparent ${isDarkMode ? 'bg-slate-800 border-slate-600 text-white' : 'border-gray-300'}`}
+                  className={`w-full p-3 lg:p-4 border rounded-lg transition-all duration-300 focus:ring-2 focus:ring-orange-500 focus:border-transparent text-lg ${isDarkMode ? 'bg-slate-800 border-slate-600 text-white' : 'border-gray-300'}`}
                 />
               </div>
             </div>
             
-            <div className="grid md:grid-cols-2 gap-6 mb-6">
+            <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mb-6 lg:mb-8">
               <div>
-                <label className={`block font-medium mb-2 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>Phone Number</label>
+                <label className={`block font-medium mb-2 text-lg ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>Phone Number</label>
                 <input 
                   type="tel" 
                   required 
-                  className={`w-full p-3 border rounded-lg transition-all duration-300 focus:ring-2 focus:ring-orange-500 focus:border-transparent ${isDarkMode ? 'bg-slate-800 border-slate-600 text-white' : 'border-gray-300'}`}
+                  className={`w-full p-3 lg:p-4 border rounded-lg transition-all duration-300 focus:ring-2 focus:ring-orange-500 focus:border-transparent text-lg ${isDarkMode ? 'bg-slate-800 border-slate-600 text-white' : 'border-gray-300'}`}
                 />
               </div>
               <div>
-                <label className={`block font-medium mb-2 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>Subject</label>
+                <label className={`block font-medium mb-2 text-lg ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>Subject</label>
                 <input 
                   type="text" 
                   required 
-                  className={`w-full p-3 border rounded-lg transition-all duration-300 focus:ring-2 focus:ring-orange-500 focus:border-transparent ${isDarkMode ? 'bg-slate-800 border-slate-600 text-white' : 'border-gray-300'}`}
+                  className={`w-full p-3 lg:p-4 border rounded-lg transition-all duration-300 focus:ring-2 focus:ring-orange-500 focus:border-transparent text-lg ${isDarkMode ? 'bg-slate-800 border-slate-600 text-white' : 'border-gray-300'}`}
                 />
               </div>
             </div>
             
-            <div className="mb-6">
-              <label className={`block font-medium mb-2 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>Message</label>
+            <div className="mb-6 lg:mb-8">
+              <label className={`block font-medium mb-2 text-lg ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>Message</label>
               <textarea 
                 required 
                 rows={5}
-                className={`w-full p-3 border rounded-lg transition-all duration-300 focus:ring-2 focus:ring-orange-500 focus:border-transparent ${isDarkMode ? 'bg-slate-800 border-slate-600 text-white' : 'border-gray-300'}`}
+                className={`w-full p-3 lg:p-4 border rounded-lg transition-all duration-300 focus:ring-2 focus:ring-orange-500 focus:border-transparent text-lg ${isDarkMode ? 'bg-slate-800 border-slate-600 text-white' : 'border-gray-300'}`}
               ></textarea>
             </div>
             
             <button 
               type="submit"
-              className="w-full bg-orange-500 text-white py-3 rounded-lg hover:bg-orange-600 transition-all duration-300 hover:scale-105 font-semibold"
+              className="w-full bg-orange-500 text-white py-3 lg:py-4 rounded-lg hover:bg-orange-600 transition-all duration-300 hover:scale-105 font-semibold text-lg lg:text-xl"
             >
               Submit Message
             </button>
@@ -485,41 +599,41 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className={`py-16 transition-colors duration-300 ${isDarkMode ? 'bg-slate-900 border-t border-slate-700' : 'bg-gray-800'} text-white`}>
+      <footer className={`py-16 lg:py-20 transition-colors duration-300 ${isDarkMode ? 'bg-slate-900 border-t border-slate-700' : 'bg-gray-800'} text-white`}>
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
             <div>
-              <h3 className="text-xl font-bold mb-4">About Us</h3>
-              <p className="text-gray-300 leading-relaxed">
+              <h3 className="text-xl lg:text-2xl font-bold mb-4 lg:mb-6">About Us</h3>
+              <p className="text-gray-300 leading-relaxed text-lg">
                 JE Tech Hub is dedicated to empowering individuals with cutting-edge technology skills through hands-on training and innovative solutions.
               </p>
             </div>
             
             <div>
-              <h3 className="text-xl font-bold mb-4">Quick Links</h3>
-              <ul className="space-y-2">
-                <li><a href="#home" className="text-gray-300 hover:text-orange-400 transition-colors duration-300">Home</a></li>
-                <li><a href="#about" className="text-gray-300 hover:text-orange-400 transition-colors duration-300">About Us</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-orange-400 transition-colors duration-300">Courses</a></li>
-                <li><a href="#programs" className="text-gray-300 hover:text-orange-400 transition-colors duration-300">Programs</a></li>
-                <li><a href="#contact" className="text-gray-300 hover:text-orange-400 transition-colors duration-300">Contact Us</a></li>
+              <h3 className="text-xl lg:text-2xl font-bold mb-4 lg:mb-6">Quick Links</h3>
+              <ul className="space-y-2 lg:space-y-3">
+                <li><a href="#home" className="text-gray-300 hover:text-orange-400 transition-colors duration-300 text-lg">Home</a></li>
+                <li><a href="#about" className="text-gray-300 hover:text-orange-400 transition-colors duration-300 text-lg">About Us</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-orange-400 transition-colors duration-300 text-lg">Courses</a></li>
+                <li><a href="#programs" className="text-gray-300 hover:text-orange-400 transition-colors duration-300 text-lg">Programs</a></li>
+                <li><a href="#contact" className="text-gray-300 hover:text-orange-400 transition-colors duration-300 text-lg">Contact Us</a></li>
               </ul>
             </div>
             
             <div>
-              <h3 className="text-xl font-bold mb-4">Our Services</h3>
-              <ul className="space-y-2">
-                <li><span className="text-gray-300">Software Development</span></li>
-                <li><span className="text-gray-300">Data Analysis</span></li>
-                <li><span className="text-gray-300">UI/UX Design</span></li>
-                <li><span className="text-gray-300">Forex Trading</span></li>
-                <li><span className="text-gray-300">Graphics & Video</span></li>
+              <h3 className="text-xl lg:text-2xl font-bold mb-4 lg:mb-6">Our Services</h3>
+              <ul className="space-y-2 lg:space-y-3">
+                <li><span className="text-gray-300 text-lg">Software Development</span></li>
+                <li><span className="text-gray-300 text-lg">Data Analysis</span></li>
+                <li><span className="text-gray-300 text-lg">UI/UX Design</span></li>
+                <li><span className="text-gray-300 text-lg">Forex Trading</span></li>
+                <li><span className="text-gray-300 text-lg">Graphics & Video</span></li>
               </ul>
             </div>
             
             <div>
-              <h3 className="text-xl font-bold mb-4">Open Hours</h3>
-              <div className="text-gray-300 space-y-2">
+              <h3 className="text-xl lg:text-2xl font-bold mb-4 lg:mb-6">Open Hours</h3>
+              <div className="text-gray-300 space-y-2 lg:space-y-3 text-lg">
                 <p>Mondays - Fridays: 8.00-20.00</p>
                 <p>Saturdays: 9.00-18.30</p>
               </div>
