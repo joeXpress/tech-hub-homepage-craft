@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Switch } from '@/components/ui/switch';
 import { Moon, Sun } from 'lucide-react';
@@ -122,43 +123,50 @@ const Index = () => {
     return (
       <div className={`min-h-screen transition-all duration-500 ${isDarkMode ? 'dark bg-slate-900' : 'bg-white'}`}>
         {/* Dark Mode Toggle */}
-        <div className="fixed bottom-4 right-4 z-50 bg-white dark:bg-slate-800 rounded-full p-1.5 shadow-lg border border-gray-200 dark:border-slate-700 hover:shadow-xl transition-all duration-300">
-          <div className="flex items-center space-x-1">
-            <Sun className={`h-2.5 w-2.5 ${isDarkMode ? 'text-gray-400' : 'text-orange-500'}`} />
+        <div className="fixed bottom-4 right-4 z-50 bg-white dark:bg-slate-800 rounded-full p-1 shadow-lg border border-gray-200 dark:border-slate-700 hover:shadow-xl transition-all duration-300">
+          <div className="flex items-center space-x-0.5">
+            <Sun className={`h-2 w-2 ${isDarkMode ? 'text-gray-400' : 'text-orange-500'}`} />
             <Switch
               checked={isDarkMode}
               onCheckedChange={setIsDarkMode}
-              className="data-[state=checked]:bg-orange-500 scale-50"
+              className="data-[state=checked]:bg-orange-500 scale-[0.4]"
             />
-            <Moon className={`h-2.5 w-2.5 ${isDarkMode ? 'text-orange-500' : 'text-gray-400'}`} />
+            <Moon className={`h-2 w-2 ${isDarkMode ? 'text-orange-500' : 'text-gray-400'}`} />
           </div>
         </div>
 
-        {/* Header */}
-        <header className={`shadow-lg sticky top-0 z-40 backdrop-blur-md transition-all duration-500 animate-fade-in ${isDarkMode ? 'bg-slate-800/95 border-b border-slate-700' : 'bg-white/95'}`}>
-          <div className="container mx-auto px-4 py-2">
-            <div className="text-center mb-2">
-              <h1 className={`text-xl md:text-2xl font-bold transition-all duration-500 bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent hover:scale-105 transform cursor-pointer`}
-                  onClick={() => setActiveSection('home')}>
-                JOE EXPRESS TECH HUB
-              </h1>
-            </div>
-            <nav className="block">
-              <div className="flex justify-center items-center gap-2 md:gap-4 flex-nowrap overflow-x-auto scrollbar-hide">
-                <button onClick={() => setActiveSection('home')} className={`font-medium transition-all duration-300 hover:scale-105 px-2 md:px-3 py-1.5 rounded-lg whitespace-nowrap text-sm md:text-base ${isDarkMode ? 'text-gray-300 hover:text-orange-400 hover:bg-slate-700/50' : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'}`}>
+        {/* Header matching the uploaded image */}
+        <header className={`py-4 shadow-sm sticky top-0 z-40 backdrop-blur-md transition-all duration-500 ${isDarkMode ? 'bg-slate-800/95 border-b border-slate-700' : 'bg-white/95'}`}>
+          <div className="container mx-auto px-4">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-3">
+                <img 
+                  src="/lovable-uploads/89fde1f2-1f36-4592-986e-b34ca8ce20ee.png" 
+                  alt="JE TechHub Logo" 
+                  className="h-12 w-auto"
+                />
+              </div>
+              <nav className="hidden md:flex items-center space-x-8">
+                <button onClick={() => setActiveSection('home')} className={`text-lg font-medium transition-colors duration-300 ${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>
                   Home
                 </button>
-                <button onClick={() => setActiveSection('delivery')} className={`font-medium transition-all duration-300 hover:scale-105 px-2 md:px-3 py-1.5 rounded-lg whitespace-nowrap text-sm md:text-base ${activeSection === 'delivery' ? 'text-orange-500 bg-orange-50 dark:bg-slate-700' : isDarkMode ? 'text-gray-300 hover:text-orange-400 hover:bg-slate-700/50' : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'}`}>
+                <a href="#about" className={`text-lg font-medium transition-colors duration-300 ${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>
+                  About Us
+                </a>
+                <a href="#programs" className={`text-lg font-medium transition-colors duration-300 ${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>
+                  Programmes
+                </a>
+                <a href="#contact" className={`text-lg font-medium transition-colors duration-300 ${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>
+                  Contact Us
+                </a>
+                <button onClick={() => setActiveSection('delivery')} className={`text-lg font-medium transition-colors duration-300 ${activeSection === 'delivery' ? 'text-blue-600 border-b-2 border-blue-600 pb-1' : isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>
                   Delivery
                 </button>
-                <button onClick={() => setActiveSection('messages')} className={`font-medium transition-all duration-300 hover:scale-105 px-2 md:px-3 py-1.5 rounded-lg whitespace-nowrap text-sm md:text-base ${isDarkMode ? 'text-gray-300 hover:text-orange-400 hover:bg-slate-700/50' : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'}`}>
+                <button onClick={() => setActiveSection('messages')} className={`text-lg font-medium transition-colors duration-300 ${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>
                   Messages
                 </button>
-                <button className="hidden lg:block bg-gradient-to-r from-orange-500 to-orange-600 text-white px-3 py-1.5 rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 hover:scale-105 hover:shadow-lg font-medium text-sm shadow-md">
-                  Contact Now
-                </button>
-              </div>
-            </nav>
+              </nav>
+            </div>
           </div>
         </header>
 
@@ -173,43 +181,50 @@ const Index = () => {
     return (
       <div className={`min-h-screen transition-all duration-500 ${isDarkMode ? 'dark bg-slate-900' : 'bg-white'}`}>
         {/* Dark Mode Toggle */}
-        <div className="fixed bottom-4 right-4 z-50 bg-white dark:bg-slate-800 rounded-full p-1.5 shadow-lg border border-gray-200 dark:border-slate-700 hover:shadow-xl transition-all duration-300">
-          <div className="flex items-center space-x-1">
-            <Sun className={`h-2.5 w-2.5 ${isDarkMode ? 'text-gray-400' : 'text-orange-500'}`} />
+        <div className="fixed bottom-4 right-4 z-50 bg-white dark:bg-slate-800 rounded-full p-1 shadow-lg border border-gray-200 dark:border-slate-700 hover:shadow-xl transition-all duration-300">
+          <div className="flex items-center space-x-0.5">
+            <Sun className={`h-2 w-2 ${isDarkMode ? 'text-gray-400' : 'text-orange-500'}`} />
             <Switch
               checked={isDarkMode}
               onCheckedChange={setIsDarkMode}
-              className="data-[state=checked]:bg-orange-500 scale-50"
+              className="data-[state=checked]:bg-orange-500 scale-[0.4]"
             />
-            <Moon className={`h-2.5 w-2.5 ${isDarkMode ? 'text-orange-500' : 'text-gray-400'}`} />
+            <Moon className={`h-2 w-2 ${isDarkMode ? 'text-orange-500' : 'text-gray-400'}`} />
           </div>
         </div>
 
-        {/* Header */}
-        <header className={`shadow-lg sticky top-0 z-40 backdrop-blur-md transition-all duration-500 animate-fade-in ${isDarkMode ? 'bg-slate-800/95 border-b border-slate-700' : 'bg-white/95'}`}>
-          <div className="container mx-auto px-4 py-2">
-            <div className="text-center mb-2">
-              <h1 className={`text-xl md:text-2xl font-bold transition-all duration-500 bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent hover:scale-105 transform cursor-pointer`}
-                  onClick={() => setActiveSection('home')}>
-                JOE EXPRESS TECH HUB
-              </h1>
-            </div>
-            <nav className="block">
-              <div className="flex justify-center items-center gap-2 md:gap-4 flex-nowrap overflow-x-auto scrollbar-hide">
-                <button onClick={() => setActiveSection('home')} className={`font-medium transition-all duration-300 hover:scale-105 px-2 md:px-3 py-1.5 rounded-lg whitespace-nowrap text-sm md:text-base ${isDarkMode ? 'text-gray-300 hover:text-orange-400 hover:bg-slate-700/50' : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'}`}>
+        {/* Header matching the uploaded image */}
+        <header className={`py-4 shadow-sm sticky top-0 z-40 backdrop-blur-md transition-all duration-500 ${isDarkMode ? 'bg-slate-800/95 border-b border-slate-700' : 'bg-white/95'}`}>
+          <div className="container mx-auto px-4">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-3">
+                <img 
+                  src="/lovable-uploads/89fde1f2-1f36-4592-986e-b34ca8ce20ee.png" 
+                  alt="JE TechHub Logo" 
+                  className="h-12 w-auto"
+                />
+              </div>
+              <nav className="hidden md:flex items-center space-x-8">
+                <button onClick={() => setActiveSection('home')} className={`text-lg font-medium transition-colors duration-300 ${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>
                   Home
                 </button>
-                <button onClick={() => setActiveSection('delivery')} className={`font-medium transition-all duration-300 hover:scale-105 px-2 md:px-3 py-1.5 rounded-lg whitespace-nowrap text-sm md:text-base ${isDarkMode ? 'text-gray-300 hover:text-orange-400 hover:bg-slate-700/50' : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'}`}>
+                <a href="#about" className={`text-lg font-medium transition-colors duration-300 ${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>
+                  About Us
+                </a>
+                <a href="#programs" className={`text-lg font-medium transition-colors duration-300 ${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>
+                  Programmes
+                </a>
+                <a href="#contact" className={`text-lg font-medium transition-colors duration-300 ${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>
+                  Contact Us
+                </a>
+                <button onClick={() => setActiveSection('delivery')} className={`text-lg font-medium transition-colors duration-300 ${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>
                   Delivery
                 </button>
-                <button onClick={() => setActiveSection('messages')} className={`font-medium transition-all duration-300 hover:scale-105 px-2 md:px-3 py-1.5 rounded-lg whitespace-nowrap text-sm md:text-base ${activeSection === 'messages' ? 'text-orange-500 bg-orange-50 dark:bg-slate-700' : isDarkMode ? 'text-gray-300 hover:text-orange-400 hover:bg-slate-700/50' : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'}`}>
+                <button onClick={() => setActiveSection('messages')} className={`text-lg font-medium transition-colors duration-300 ${activeSection === 'messages' ? 'text-blue-600 border-b-2 border-blue-600 pb-1' : isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>
                   Messages
                 </button>
-                <button className="hidden lg:block bg-gradient-to-r from-orange-500 to-orange-600 text-white px-3 py-1.5 rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 hover:scale-105 hover:shadow-lg font-medium text-sm shadow-md">
-                  Contact Now
-                </button>
-              </div>
-            </nav>
+              </nav>
+            </div>
           </div>
         </header>
 
@@ -223,51 +238,50 @@ const Index = () => {
   return (
     <div className={`min-h-screen transition-all duration-500 ${isDarkMode ? 'dark bg-slate-900' : 'bg-white'} relative`}>
       {/* Dark Mode Toggle */}
-      <div className="fixed bottom-4 right-4 z-50 bg-white dark:bg-slate-800 rounded-full p-1.5 shadow-lg border border-gray-200 dark:border-slate-700 hover:shadow-xl transition-all duration-300">
-        <div className="flex items-center space-x-1">
-          <Sun className={`h-2.5 w-2.5 ${isDarkMode ? 'text-gray-400' : 'text-orange-500'}`} />
+      <div className="fixed bottom-4 right-4 z-50 bg-white dark:bg-slate-800 rounded-full p-1 shadow-lg border border-gray-200 dark:border-slate-700 hover:shadow-xl transition-all duration-300">
+        <div className="flex items-center space-x-0.5">
+          <Sun className={`h-2 w-2 ${isDarkMode ? 'text-gray-400' : 'text-orange-500'}`} />
           <Switch
             checked={isDarkMode}
             onCheckedChange={setIsDarkMode}
-            className="data-[state=checked]:bg-orange-500 scale-50"
+            className="data-[state=checked]:bg-orange-500 scale-[0.4]"
           />
-          <Moon className={`h-2.5 w-2.5 ${isDarkMode ? 'text-orange-500' : 'text-gray-400'}`} />
+          <Moon className={`h-2 w-2 ${isDarkMode ? 'text-orange-500' : 'text-gray-400'}`} />
         </div>
       </div>
 
-      {/* Header */}
-      <header className={`shadow-lg sticky top-0 z-40 backdrop-blur-md transition-all duration-500 animate-fade-in ${isDarkMode ? 'bg-slate-800/95 border-b border-slate-700' : 'bg-white/95'}`}>
-        <div className="container mx-auto px-4 py-2">
-          <div className="text-center mb-2">
-            <h1 className={`text-xl md:text-2xl font-bold transition-all duration-500 bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent hover:scale-105 transform cursor-pointer`}>
-              JOE EXPRESS TECH HUB
-            </h1>
-          </div>
-          <nav className="block">
-            <div className="flex justify-center items-center gap-2 md:gap-4 flex-nowrap overflow-x-auto scrollbar-hide">
-              <a href="#home" className={`font-medium transition-all duration-300 hover:scale-105 px-2 md:px-3 py-1.5 rounded-lg whitespace-nowrap text-sm md:text-base ${isDarkMode ? 'text-gray-300 hover:text-orange-400 hover:bg-slate-700/50' : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'}`}>
+      {/* Header matching the uploaded image */}
+      <header className={`py-4 shadow-sm sticky top-0 z-40 backdrop-blur-md transition-all duration-500 animate-fade-in ${isDarkMode ? 'bg-slate-800/95 border-b border-slate-700' : 'bg-white/95'}`}>
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-3">
+              <img 
+                src="/lovable-uploads/89fde1f2-1f36-4592-986e-b34ca8ce20ee.png" 
+                alt="JE TechHub Logo" 
+                className="h-12 w-auto"
+              />
+            </div>
+            <nav className="hidden md:flex items-center space-x-8">
+              <a href="#home" className={`text-lg font-medium transition-colors duration-300 ${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>
                 Home
               </a>
-              <a href="#about" className={`font-medium transition-all duration-300 hover:scale-105 px-2 md:px-3 py-1.5 rounded-lg whitespace-nowrap text-sm md:text-base ${isDarkMode ? 'text-gray-300 hover:text-orange-400 hover:bg-slate-700/50' : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'}`}>
+              <a href="#about" className={`text-lg font-medium transition-colors duration-300 ${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>
                 About Us
               </a>
-              <a href="#programs" className={`font-medium transition-all duration-300 hover:scale-105 px-2 md:px-3 py-1.5 rounded-lg whitespace-nowrap text-sm md:text-base ${isDarkMode ? 'text-gray-300 hover:text-orange-400 hover:bg-slate-700/50' : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'}`}>
-                Programs
+              <a href="#programs" className={`text-lg font-medium transition-colors duration-300 ${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>
+                Programmes
               </a>
-              <button onClick={() => setActiveSection('delivery')} className={`font-medium transition-all duration-300 hover:scale-105 px-2 md:px-3 py-1.5 rounded-lg whitespace-nowrap text-sm md:text-base ${isDarkMode ? 'text-gray-300 hover:text-orange-400 hover:bg-slate-700/50' : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'}`}>
-                Delivery
-              </button>
-              <button onClick={() => setActiveSection('messages')} className={`font-medium transition-all duration-300 hover:scale-105 px-2 md:px-3 py-1.5 rounded-lg whitespace-nowrap text-sm md:text-base ${isDarkMode ? 'text-gray-300 hover:text-orange-400 hover:bg-slate-700/50' : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'}`}>
-                Messages
-              </button>
-              <a href="#contact" className={`font-medium transition-all duration-300 hover:scale-105 px-2 md:px-3 py-1.5 rounded-lg whitespace-nowrap text-sm md:text-base ${isDarkMode ? 'text-gray-300 hover:text-orange-400 hover:bg-slate-700/50' : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'}`}>
+              <a href="#contact" className={`text-lg font-medium transition-colors duration-300 ${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>
                 Contact Us
               </a>
-              <button className="hidden lg:block bg-gradient-to-r from-orange-500 to-orange-600 text-white px-3 py-1.5 rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 hover:scale-105 hover:shadow-lg font-medium text-sm shadow-md">
-                Contact Now
+              <button onClick={() => setActiveSection('delivery')} className={`text-lg font-medium transition-colors duration-300 ${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>
+                Delivery
               </button>
-            </div>
-          </nav>
+              <button onClick={() => setActiveSection('messages')} className={`text-lg font-medium transition-colors duration-300 ${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>
+                Messages
+              </button>
+            </nav>
+          </div>
         </div>
       </header>
 
