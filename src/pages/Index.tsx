@@ -135,39 +135,85 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Header matching the uploaded image */}
-        <header className={`py-4 shadow-sm sticky top-0 z-40 backdrop-blur-md transition-all duration-500 ${isDarkMode ? 'bg-slate-800/95 border-b border-slate-700' : 'bg-white/95'}`}>
-          <div className="container mx-auto px-4">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-3">
-                <img 
-                  src="/lovable-uploads/89fde1f2-1f36-4592-986e-b34ca8ce20ee.png" 
-                  alt="JE TechHub Logo" 
-                  className="h-12 w-auto"
-                />
-              </div>
-              <nav className="hidden md:flex items-center space-x-8">
-                <button onClick={() => setActiveSection('home')} className={`text-lg font-medium transition-colors duration-300 ${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>
-                  Home
-                </button>
-                <a href="#about" className={`text-lg font-medium transition-colors duration-300 ${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>
-                  About Us
-                </a>
-                <a href="#programs" className={`text-lg font-medium transition-colors duration-300 ${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>
-                  Programmes
-                </a>
-                <a href="#contact" className={`text-lg font-medium transition-colors duration-300 ${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>
-                  Contact Us
-                </a>
-                <button onClick={() => setActiveSection('delivery')} className={`text-lg font-medium transition-colors duration-300 ${activeSection === 'delivery' ? 'text-blue-600 border-b-2 border-blue-600 pb-1' : isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>
-                  Delivery
-                </button>
-                <button onClick={() => setActiveSection('messages')} className={`text-lg font-medium transition-colors duration-300 ${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>
-                  Messages
-                </button>
-              </nav>
-            </div>
+        {/* New Header */}
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            .header {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              padding: 20px 0;
+              position: sticky;
+              top: 0;
+              z-index: 40;
+              backdrop-filter: blur(12px);
+              background: ${isDarkMode ? 'rgba(30, 41, 59, 0.95)' : 'rgba(255, 255, 255, 0.95)'};
+              border-bottom: ${isDarkMode ? '1px solid rgba(51, 65, 85, 1)' : '1px solid rgba(229, 231, 235, 1)'};
+            }
+
+            .logo-container {
+              display: flex;
+              align-items: center;
+              margin-bottom: 20px;
+            }
+
+            .logo {
+              height: 40px;
+              margin-right: 10px;
+            }
+
+            .nav-menu {
+              display: flex;
+              gap: 25px;
+            }
+
+            .nav-menu a {
+              text-decoration: none;
+              color: ${isDarkMode ? '#d1d5db' : '#000'};
+              font-size: 16px;
+              position: relative;
+              cursor: pointer;
+              transition: color 0.3s ease;
+            }
+
+            .nav-menu a:hover {
+              color: ${isDarkMode ? '#3b82f6' : '#2d4ecf'};
+            }
+
+            .nav-menu a.active {
+              color: #2d4ecf;
+            }
+
+            .nav-menu a.active::after {
+              content: "";
+              display: block;
+              width: 25px;
+              height: 3px;
+              background-color: #2d4ecf;
+              margin-top: 5px;
+              border-radius: 2px;
+              margin-left: auto;
+              margin-right: auto;
+            }
+          `
+        }} />
+
+        <header className="header">
+          <div className="logo-container">
+            <img 
+              src="/lovable-uploads/89fde1f2-1f36-4592-986e-b34ca8ce20ee.png" 
+              alt="JEX Logo" 
+              className="logo" 
+            />
           </div>
+          <nav className="nav-menu">
+            <a onClick={() => setActiveSection('home')} className={activeSection === 'home' ? 'active' : ''}>Home</a>
+            <a href="#about">About Us</a>
+            <a href="#programs">Programmes</a>
+            <a href="#contact">Contact Us</a>
+            <a onClick={() => setActiveSection('delivery')} className={activeSection === 'delivery' ? 'active' : ''}>Delivery</a>
+            <a onClick={() => setActiveSection('messages')}>Messages</a>
+          </nav>
         </header>
 
         <div className="pt-8">
@@ -193,39 +239,85 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Header matching the uploaded image */}
-        <header className={`py-4 shadow-sm sticky top-0 z-40 backdrop-blur-md transition-all duration-500 ${isDarkMode ? 'bg-slate-800/95 border-b border-slate-700' : 'bg-white/95'}`}>
-          <div className="container mx-auto px-4">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-3">
-                <img 
-                  src="/lovable-uploads/89fde1f2-1f36-4592-986e-b34ca8ce20ee.png" 
-                  alt="JE TechHub Logo" 
-                  className="h-12 w-auto"
-                />
-              </div>
-              <nav className="hidden md:flex items-center space-x-8">
-                <button onClick={() => setActiveSection('home')} className={`text-lg font-medium transition-colors duration-300 ${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>
-                  Home
-                </button>
-                <a href="#about" className={`text-lg font-medium transition-colors duration-300 ${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>
-                  About Us
-                </a>
-                <a href="#programs" className={`text-lg font-medium transition-colors duration-300 ${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>
-                  Programmes
-                </a>
-                <a href="#contact" className={`text-lg font-medium transition-colors duration-300 ${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>
-                  Contact Us
-                </a>
-                <button onClick={() => setActiveSection('delivery')} className={`text-lg font-medium transition-colors duration-300 ${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>
-                  Delivery
-                </button>
-                <button onClick={() => setActiveSection('messages')} className={`text-lg font-medium transition-colors duration-300 ${activeSection === 'messages' ? 'text-blue-600 border-b-2 border-blue-600 pb-1' : isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>
-                  Messages
-                </button>
-              </nav>
-            </div>
+        {/* New Header */}
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            .header {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              padding: 20px 0;
+              position: sticky;
+              top: 0;
+              z-index: 40;
+              backdrop-filter: blur(12px);
+              background: ${isDarkMode ? 'rgba(30, 41, 59, 0.95)' : 'rgba(255, 255, 255, 0.95)'};
+              border-bottom: ${isDarkMode ? '1px solid rgba(51, 65, 85, 1)' : '1px solid rgba(229, 231, 235, 1)'};
+            }
+
+            .logo-container {
+              display: flex;
+              align-items: center;
+              margin-bottom: 20px;
+            }
+
+            .logo {
+              height: 40px;
+              margin-right: 10px;
+            }
+
+            .nav-menu {
+              display: flex;
+              gap: 25px;
+            }
+
+            .nav-menu a {
+              text-decoration: none;
+              color: ${isDarkMode ? '#d1d5db' : '#000'};
+              font-size: 16px;
+              position: relative;
+              cursor: pointer;
+              transition: color 0.3s ease;
+            }
+
+            .nav-menu a:hover {
+              color: ${isDarkMode ? '#3b82f6' : '#2d4ecf'};
+            }
+
+            .nav-menu a.active {
+              color: #2d4ecf;
+            }
+
+            .nav-menu a.active::after {
+              content: "";
+              display: block;
+              width: 25px;
+              height: 3px;
+              background-color: #2d4ecf;
+              margin-top: 5px;
+              border-radius: 2px;
+              margin-left: auto;
+              margin-right: auto;
+            }
+          `
+        }} />
+
+        <header className="header">
+          <div className="logo-container">
+            <img 
+              src="/lovable-uploads/89fde1f2-1f36-4592-986e-b34ca8ce20ee.png" 
+              alt="JEX Logo" 
+              className="logo" 
+            />
           </div>
+          <nav className="nav-menu">
+            <a onClick={() => setActiveSection('home')} className={activeSection === 'home' ? 'active' : ''}>Home</a>
+            <a href="#about">About Us</a>
+            <a href="#programs">Programmes</a>
+            <a href="#contact">Contact Us</a>
+            <a onClick={() => setActiveSection('delivery')}>Delivery</a>
+            <a onClick={() => setActiveSection('messages')} className={activeSection === 'messages' ? 'active' : ''}>Messages</a>
+          </nav>
         </header>
 
         <div className="pt-8">
@@ -250,39 +342,85 @@ const Index = () => {
         </div>
       </div>
 
-      {/* Header matching the uploaded image */}
-      <header className={`py-4 shadow-sm sticky top-0 z-40 backdrop-blur-md transition-all duration-500 animate-fade-in ${isDarkMode ? 'bg-slate-800/95 border-b border-slate-700' : 'bg-white/95'}`}>
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <img 
-                src="/lovable-uploads/89fde1f2-1f36-4592-986e-b34ca8ce20ee.png" 
-                alt="JE TechHub Logo" 
-                className="h-12 w-auto"
-              />
-            </div>
-            <nav className="hidden md:flex items-center space-x-8">
-              <a href="#home" className={`text-lg font-medium transition-colors duration-300 ${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>
-                Home
-              </a>
-              <a href="#about" className={`text-lg font-medium transition-colors duration-300 ${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>
-                About Us
-              </a>
-              <a href="#programs" className={`text-lg font-medium transition-colors duration-300 ${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>
-                Programmes
-              </a>
-              <a href="#contact" className={`text-lg font-medium transition-colors duration-300 ${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>
-                Contact Us
-              </a>
-              <button onClick={() => setActiveSection('delivery')} className={`text-lg font-medium transition-colors duration-300 ${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>
-                Delivery
-              </button>
-              <button onClick={() => setActiveSection('messages')} className={`text-lg font-medium transition-colors duration-300 ${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'}`}>
-                Messages
-              </button>
-            </nav>
-          </div>
+      {/* New Header */}
+      <style dangerouslySetInnerHTML={{
+        __html: `
+          .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            backdrop-filter: blur(12px);
+            background: ${isDarkMode ? 'rgba(30, 41, 59, 0.95)' : 'rgba(255, 255, 255, 0.95)'};
+            border-bottom: ${isDarkMode ? '1px solid rgba(51, 65, 85, 1)' : '1px solid rgba(229, 231, 235, 1)'};
+          }
+
+          .logo-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+          }
+
+          .logo {
+            height: 40px;
+            margin-right: 10px;
+          }
+
+          .nav-menu {
+            display: flex;
+            gap: 25px;
+          }
+
+          .nav-menu a {
+            text-decoration: none;
+            color: ${isDarkMode ? '#d1d5db' : '#000'};
+            font-size: 16px;
+            position: relative;
+            cursor: pointer;
+            transition: color 0.3s ease;
+          }
+
+          .nav-menu a:hover {
+            color: ${isDarkMode ? '#3b82f6' : '#2d4ecf'};
+          }
+
+          .nav-menu a.active {
+            color: #2d4ecf;
+          }
+
+          .nav-menu a.active::after {
+            content: "";
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #2d4ecf;
+            margin-top: 5px;
+            border-radius: 2px;
+            margin-left: auto;
+            margin-right: auto;
+          }
+        `
+      }} />
+
+      <header className="header">
+        <div className="logo-container">
+          <img 
+            src="/lovable-uploads/89fde1f2-1f36-4592-986e-b34ca8ce20ee.png" 
+            alt="JEX Logo" 
+            className="logo" 
+          />
         </div>
+        <nav className="nav-menu">
+          <a href="#home" className="active">Home</a>
+          <a href="#about">About Us</a>
+          <a href="#programs">Programmes</a>
+          <a href="#contact">Contact Us</a>
+          <a onClick={() => setActiveSection('delivery')}>Delivery</a>
+          <a onClick={() => setActiveSection('messages')}>Messages</a>
+        </nav>
       </header>
 
       {/* Hero Slider - Enhanced for larger screens */}
