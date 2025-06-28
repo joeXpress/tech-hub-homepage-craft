@@ -1,4 +1,3 @@
-
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -19,11 +18,6 @@ body.dark-mode {
     color: #e2e8f0;
 }
 
-/* Headings - Left aligned */
-h1, h2 {
-    text-align: left;
-}
-
 /* Preloader */
 .preloader {
     position: fixed;
@@ -31,7 +25,7 @@ h1, h2 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0f172a 100%);
+    background: linear-gradient(135deg, #0f172a 0%, #1e40af 50%, #0f172a 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -110,7 +104,7 @@ body.dark-mode .dark-mode-toggle {
 }
 
 .dark-mode-switch:checked + .switch-label {
-    background: #1e3a8a;
+    background: #f97316;
 }
 
 .dark-mode-switch:checked + .switch-label::after {
@@ -137,7 +131,7 @@ body.dark-mode .dark-mode-toggle {
     gap: 2rem;
 }
 
-/* Buttons - Dark Blue Theme */
+/* Buttons */
 .btn {
     display: inline-block;
     padding: 12px 24px;
@@ -151,33 +145,33 @@ body.dark-mode .dark-mode-toggle {
 }
 
 .btn-primary {
-    background: #1e3a8a;
+    background: linear-gradient(135deg, #f97316, #ea580c);
     color: white;
 }
 
 .btn-primary:hover {
-    background: #1e40af;
+    background: linear-gradient(135deg, #ea580c, #dc2626);
     transform: translateY(-2px);
 }
 
 .btn-secondary {
     background: transparent;
-    color: #1e3a8a;
-    border: 2px solid #1e3a8a;
+    color: #f97316;
+    border: 2px solid #f97316;
 }
 
 .btn-secondary:hover {
-    background: #1e3a8a;
+    background: #f97316;
     color: white;
 }
 
 .btn-success {
-    background: #1e3a8a;
+    background: #16a34a;
     color: white;
 }
 
 .btn-success:hover {
-    background: #1e40af;
+    background: #15803d;
 }
 
 .btn-full {
@@ -192,7 +186,7 @@ body.dark-mode .dark-mode-toggle {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0f172a 100%);
+    background: linear-gradient(135deg, #0f172a 0%, #1e40af 50%, #0f172a 100%);
 }
 
 .hero-background {
@@ -264,8 +258,8 @@ body.dark-mode .dark-mode-toggle {
 }
 
 .indicator.active {
-    background: #1e3a8a;
-    box-shadow: 0 0 10px rgba(30, 58, 138, 0.5);
+    background: #f97316;
+    box-shadow: 0 0 10px rgba(249, 115, 22, 0.5);
 }
 
 /* Delivery Booking Section */
@@ -289,7 +283,7 @@ body.dark-mode .delivery-booking-section {
 .back-btn {
     background: transparent;
     border: none;
-    color: #1e3a8a;
+    color: #f97316;
     font-size: 1.1rem;
     cursor: pointer;
     padding: 8px 16px;
@@ -298,11 +292,11 @@ body.dark-mode .delivery-booking-section {
 }
 
 .back-btn:hover {
-    background: rgba(30, 58, 138, 0.1);
+    background: rgba(249, 115, 22, 0.1);
 }
 
 body.dark-mode .back-btn {
-    color: #1e3a8a;
+    color: #f97316;
 }
 
 .delivery-tabs {
@@ -336,9 +330,9 @@ body.dark-mode .tab-btn {
 }
 
 .tab-btn.active {
-    background: #1e3a8a;
+    background: #f97316;
     color: white;
-    box-shadow: 0 2px 4px rgba(30, 58, 138, 0.3);
+    box-shadow: 0 2px 4px rgba(249, 115, 22, 0.3);
 }
 
 .delivery-form {
@@ -375,7 +369,6 @@ body.dark-mode .form-section {
     font-weight: bold;
     color: #1f2937;
     margin-bottom: 1.5rem;
-    text-align: left;
 }
 
 body.dark-mode .form-section h3 {
@@ -427,17 +420,208 @@ body.dark-mode .form-group select {
 .form-group textarea:focus,
 .form-group select:focus {
     outline: none;
-    border-color: #1e3a8a;
-    box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+    border-color: #f97316;
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
 }
 
-/* ... keep existing code (all remaining styles) the same ... */
+/* Tracking Styles */
+.tracking-search {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body.dark-mode .tracking-search {
+    background: #334155;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.tracking-input-group {
+    display: flex;
+    gap: 1rem;
+}
+
+.tracking-input-group input {
+    flex: 1;
+}
+
+.tracking-results {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.tracking-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .tracking-card {
+    background: #334155;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.tracking-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.tracking-header h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1f2937;
+}
+
+body.dark-mode .tracking-header h3 {
+    color: #f8fafc;
+}
+
+.status-badge {
+    padding: 8px 16px;
+    background: #16a34a;
+    color: white;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.tracking-timeline {
+    margin-bottom: 2rem;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.timeline-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 30px;
+    width: 2px;
+    height: 100%;
+    background: #e5e7eb;
+}
+
+body.dark-mode .timeline-item:not(:last-child)::after {
+    background: #475569;
+}
+
+.timeline-item.completed::after {
+    background: #16a34a;
+}
+
+.timeline-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #e5e7eb;
+    margin-right: 1rem;
+    margin-top: 4px;
+    border: 3px solid white;
+    z-index: 1;
+    position: relative;
+}
+
+body.dark-mode .timeline-dot {
+    background: #475569;
+    border-color: #334155;
+}
+
+.timeline-item.completed .timeline-dot {
+    background: #16a34a;
+}
+
+.timeline-item.current .timeline-dot {
+    background: #f97316;
+    box-shadow: 0 0 10px rgba(249, 115, 22, 0.5);
+}
+
+.timeline-content h4 {
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 0.25rem;
+}
+
+body.dark-mode .timeline-content h4 {
+    color: #f8fafc;
+}
+
+.timeline-content p {
+    color: #6b7280;
+    font-size: 0.875rem;
+}
+
+body.dark-mode .timeline-content p {
+    color: #cbd5e1;
+}
+
+/* Rating Section */
+.rating-section {
+    border-top: 1px solid #e5e7eb;
+    padding-top: 2rem;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+body.dark-mode .rating-section {
+    border-top-color: #475569;
+}
+
+.rating-section h4 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #1f2937;
+    margin-bottom: 1rem;
+}
+
+body.dark-mode .rating-section h4 {
+    color: #f8fafc;
+}
+
+.star-rating {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.star {
+    font-size: 2rem;
+    color: #d1d5db;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.star:hover,
+.star.active {
+    color: #fbbf24;
+    transform: scale(1.1);
+}
+
+.rating-section textarea {
+    width: 100%;
+    max-width: 400px;
+    margin: 1rem auto;
+    display: block;
+}
 
 /* Section Styles */
 .section-title {
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: bold;
-    text-align: left;
+    text-align: center;
     margin-bottom: 2rem;
     color: #1f2937;
 }
@@ -499,7 +683,6 @@ body.dark-mode .card {
     font-weight: bold;
     margin-bottom: 1rem;
     color: #1f2937;
-    text-align: left;
 }
 
 body.dark-mode .card h3 {
@@ -576,7 +759,6 @@ body.dark-mode .offer-section {
     font-weight: 600;
     margin-bottom: 1.5rem;
     color: #1f2937;
-    text-align: left;
 }
 
 body.dark-mode .offer-subtitle {
@@ -650,7 +832,6 @@ body.dark-mode .program-card {
     font-weight: bold;
     padding: 1.5rem 1.5rem 1rem;
     color: #1f2937;
-    text-align: left;
 }
 
 body.dark-mode .program-card h3 {
@@ -675,7 +856,7 @@ body.dark-mode .program-card p {
 /* CTA Section */
 .cta-section {
     padding: 80px 0;
-    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0f172a 100%);
+    background: linear-gradient(135deg, #0f172a 0%, #1e40af 50%, #0f172a 100%);
     color: white;
     text-align: center;
 }
@@ -713,7 +894,6 @@ body.dark-mode .delivery-section {
     font-weight: 600;
     margin-bottom: 1.5rem;
     color: #1f2937;
-    text-align: left;
 }
 
 body.dark-mode .delivery-subtitle {
@@ -819,7 +999,6 @@ body.dark-mode .testimonial-author {
     font-weight: bold;
     color: #1f2937;
     margin-bottom: 0.25rem;
-    text-align: left;
 }
 
 body.dark-mode .testimonial-author h4 {
@@ -901,206 +1080,8 @@ body.dark-mode .form-group textarea {
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #1e3a8a;
-    box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
-}
-
-/* ... keep existing code (tracking, rating, footer styles) the same ... */
-
-/* Tracking Styles */
-.tracking-search {
-    background: white;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 2rem;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-body.dark-mode .tracking-search {
-    background: #334155;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-}
-
-.tracking-input-group {
-    display: flex;
-    gap: 1rem;
-}
-
-.tracking-input-group input {
-    flex: 1;
-}
-
-.tracking-results {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.tracking-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 16px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
-
-body.dark-mode .tracking-card {
-    background: #334155;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-}
-
-.tracking-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
-}
-
-.tracking-header h3 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #1f2937;
-    text-align: left;
-}
-
-body.dark-mode .tracking-header h3 {
-    color: #f8fafc;
-}
-
-.status-badge {
-    padding: 8px 16px;
-    background: #16a34a;
-    color: white;
-    border-radius: 20px;
-    font-size: 0.875rem;
-    font-weight: 600;
-}
-
-.tracking-timeline {
-    margin-bottom: 2rem;
-}
-
-.timeline-item {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 1.5rem;
-    position: relative;
-}
-
-.timeline-item:not(:last-child)::after {
-    content: '';
-    position: absolute;
-    left: 15px;
-    top: 30px;
-    width: 2px;
-    height: 100%;
-    background: #e5e7eb;
-}
-
-body.dark-mode .timeline-item:not(:last-child)::after {
-    background: #475569;
-}
-
-.timeline-item.completed::after {
-    background: #16a34a;
-}
-
-.timeline-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: #e5e7eb;
-    margin-right: 1rem;
-    margin-top: 4px;
-    border: 3px solid white;
-    z-index: 1;
-    position: relative;
-}
-
-body.dark-mode .timeline-dot {
-    background: #475569;
-    border-color: #334155;
-}
-
-.timeline-item.completed .timeline-dot {
-    background: #16a34a;
-}
-
-.timeline-item.current .timeline-dot {
-    background: #1e3a8a;
-    box-shadow: 0 0 10px rgba(30, 58, 138, 0.5);
-}
-
-.timeline-content h4 {
-    font-weight: 600;
-    color: #1f2937;
-    margin-bottom: 0.25rem;
-    text-align: left;
-}
-
-body.dark-mode .timeline-content h4 {
-    color: #f8fafc;
-}
-
-.timeline-content p {
-    color: #6b7280;
-    font-size: 0.875rem;
-}
-
-body.dark-mode .timeline-content p {
-    color: #cbd5e1;
-}
-
-/* Rating Section */
-.rating-section {
-    border-top: 1px solid #e5e7eb;
-    padding-top: 2rem;
-    margin-top: 2rem;
-    text-align: center;
-}
-
-body.dark-mode .rating-section {
-    border-top-color: #475569;
-}
-
-.rating-section h4 {
-    font-size: 1.25rem;
-    font-weight: bold;
-    color: #1f2937;
-    margin-bottom: 1rem;
-    text-align: left;
-}
-
-body.dark-mode .rating-section h4 {
-    color: #f8fafc;
-}
-
-.star-rating {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-}
-
-.star {
-    font-size: 2rem;
-    color: #d1d5db;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.star:hover,
-.star.active {
-    color: #fbbf24;
-    transform: scale(1.1);
-}
-
-.rating-section textarea {
-    width: 100%;
-    max-width: 400px;
-    margin: 1rem auto;
-    display: block;
+    border-color: #f97316;
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
 }
 
 /* Footer */
@@ -1125,7 +1106,6 @@ body.dark-mode .footer {
     font-weight: bold;
     margin-bottom: 1rem;
     color: white;
-    text-align: left;
 }
 
 .footer-section p,
@@ -1146,7 +1126,7 @@ body.dark-mode .footer {
 }
 
 .footer-section a:hover {
-    color: #1e3a8a;
+    color: #f97316;
 }
 
 /* Animations */
