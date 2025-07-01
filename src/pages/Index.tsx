@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Switch } from '@/components/ui/switch';
 import { Moon, Sun } from 'lucide-react';
@@ -29,17 +30,20 @@ const Index = () => {
     {
       title: "LEARN GROW AND EXPLORE ENDLESS OPPORTUNITIES!",
       subtitle: "Join a community of like-minded learners and industry professionals who are passionate about technology and...",
-      buttons: ["Join Now", "Learn More"]
+      buttons: ["Join Now", "Learn More"],
+      bgImage: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1920&h=1080&fit=crop"
     },
     {
       title: "We Provide Services That You Can Trust!",
       subtitle: "Dedicated to empowering individuals and businesses with cutting-edge solutions.",
-      buttons: ["Learn More", "About Us"]
+      buttons: ["Learn More", "About Us"],
+      bgImage: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920&h=1080&fit=crop"
     },
     {
       title: "Get the skills, mentorship, and resources you need to thrive in today's digital world.",
       subtitle: "",
-      buttons: ["joinUs", "Contact Now"]
+      buttons: ["joinUs", "Contact Now"],
+      bgImage: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=1920&h=1080&fit=crop"
     }
   ];
 
@@ -124,43 +128,15 @@ const Index = () => {
         {/* Dark Mode Toggle */}
         <div className="fixed bottom-4 right-4 z-50 bg-white dark:bg-slate-800 rounded-full p-1.5 shadow-lg border border-gray-200 dark:border-slate-700 hover:shadow-xl transition-all duration-300">
           <div className="flex items-center space-x-1">
-            <Sun className={`h-2.5 w-2.5 ${isDarkMode ? 'text-gray-400' : 'text-orange-500'}`} />
+            <Sun className={`h-2.5 w-2.5 ${isDarkMode ? 'text-gray-400' : 'text-blue-800'}`} />
             <Switch
               checked={isDarkMode}
               onCheckedChange={setIsDarkMode}
-              className="data-[state=checked]:bg-orange-500 scale-50"
+              className="data-[state=checked]:bg-blue-800 scale-50"
             />
-            <Moon className={`h-2.5 w-2.5 ${isDarkMode ? 'text-orange-500' : 'text-gray-400'}`} />
+            <Moon className={`h-2.5 w-2.5 ${isDarkMode ? 'text-blue-800' : 'text-gray-400'}`} />
           </div>
         </div>
-
-        {/* Header */}
-        <header className={`shadow-lg sticky top-0 z-40 backdrop-blur-md transition-all duration-500 animate-fade-in ${isDarkMode ? 'bg-slate-800/95 border-b border-slate-700' : 'bg-white/95'}`}>
-          <div className="container mx-auto px-4 py-2">
-            <div className="text-center mb-2">
-              <h1 className={`text-xl md:text-2xl font-bold transition-all duration-500 bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent hover:scale-105 transform cursor-pointer`}
-                  onClick={() => setActiveSection('home')}>
-                JOE EXPRESS TECH HUB
-              </h1>
-            </div>
-            <nav className="block">
-              <div className="flex justify-center items-center gap-2 md:gap-4 flex-nowrap overflow-x-auto scrollbar-hide">
-                <button onClick={() => setActiveSection('home')} className={`font-medium transition-all duration-300 hover:scale-105 px-2 md:px-3 py-1.5 rounded-lg whitespace-nowrap text-sm md:text-base ${isDarkMode ? 'text-gray-300 hover:text-orange-400 hover:bg-slate-700/50' : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'}`}>
-                  Home
-                </button>
-                <button onClick={() => setActiveSection('delivery')} className={`font-medium transition-all duration-300 hover:scale-105 px-2 md:px-3 py-1.5 rounded-lg whitespace-nowrap text-sm md:text-base ${activeSection === 'delivery' ? 'text-orange-500 bg-orange-50 dark:bg-slate-700' : isDarkMode ? 'text-gray-300 hover:text-orange-400 hover:bg-slate-700/50' : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'}`}>
-                  Delivery
-                </button>
-                <button onClick={() => setActiveSection('messages')} className={`font-medium transition-all duration-300 hover:scale-105 px-2 md:px-3 py-1.5 rounded-lg whitespace-nowrap text-sm md:text-base ${isDarkMode ? 'text-gray-300 hover:text-orange-400 hover:bg-slate-700/50' : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'}`}>
-                  Messages
-                </button>
-                <button className="hidden lg:block bg-gradient-to-r from-orange-500 to-orange-600 text-white px-3 py-1.5 rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 hover:scale-105 hover:shadow-lg font-medium text-sm shadow-md">
-                  Contact Now
-                </button>
-              </div>
-            </nav>
-          </div>
-        </header>
 
         <div className="pt-8">
           <DeliveryBooking isDarkMode={isDarkMode} />
@@ -175,43 +151,15 @@ const Index = () => {
         {/* Dark Mode Toggle */}
         <div className="fixed bottom-4 right-4 z-50 bg-white dark:bg-slate-800 rounded-full p-1.5 shadow-lg border border-gray-200 dark:border-slate-700 hover:shadow-xl transition-all duration-300">
           <div className="flex items-center space-x-1">
-            <Sun className={`h-2.5 w-2.5 ${isDarkMode ? 'text-gray-400' : 'text-orange-500'}`} />
+            <Sun className={`h-2.5 w-2.5 ${isDarkMode ? 'text-gray-400' : 'text-blue-800'}`} />
             <Switch
               checked={isDarkMode}
               onCheckedChange={setIsDarkMode}
-              className="data-[state=checked]:bg-orange-500 scale-50"
+              className="data-[state=checked]:bg-blue-800 scale-50"
             />
-            <Moon className={`h-2.5 w-2.5 ${isDarkMode ? 'text-orange-500' : 'text-gray-400'}`} />
+            <Moon className={`h-2.5 w-2.5 ${isDarkMode ? 'text-blue-800' : 'text-gray-400'}`} />
           </div>
         </div>
-
-        {/* Header */}
-        <header className={`shadow-lg sticky top-0 z-40 backdrop-blur-md transition-all duration-500 animate-fade-in ${isDarkMode ? 'bg-slate-800/95 border-b border-slate-700' : 'bg-white/95'}`}>
-          <div className="container mx-auto px-4 py-2">
-            <div className="text-center mb-2">
-              <h1 className={`text-xl md:text-2xl font-bold transition-all duration-500 bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent hover:scale-105 transform cursor-pointer`}
-                  onClick={() => setActiveSection('home')}>
-                JOE EXPRESS TECH HUB
-              </h1>
-            </div>
-            <nav className="block">
-              <div className="flex justify-center items-center gap-2 md:gap-4 flex-nowrap overflow-x-auto scrollbar-hide">
-                <button onClick={() => setActiveSection('home')} className={`font-medium transition-all duration-300 hover:scale-105 px-2 md:px-3 py-1.5 rounded-lg whitespace-nowrap text-sm md:text-base ${isDarkMode ? 'text-gray-300 hover:text-orange-400 hover:bg-slate-700/50' : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'}`}>
-                  Home
-                </button>
-                <button onClick={() => setActiveSection('delivery')} className={`font-medium transition-all duration-300 hover:scale-105 px-2 md:px-3 py-1.5 rounded-lg whitespace-nowrap text-sm md:text-base ${isDarkMode ? 'text-gray-300 hover:text-orange-400 hover:bg-slate-700/50' : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'}`}>
-                  Delivery
-                </button>
-                <button onClick={() => setActiveSection('messages')} className={`font-medium transition-all duration-300 hover:scale-105 px-2 md:px-3 py-1.5 rounded-lg whitespace-nowrap text-sm md:text-base ${activeSection === 'messages' ? 'text-orange-500 bg-orange-50 dark:bg-slate-700' : isDarkMode ? 'text-gray-300 hover:text-orange-400 hover:bg-slate-700/50' : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'}`}>
-                  Messages
-                </button>
-                <button className="hidden lg:block bg-gradient-to-r from-orange-500 to-orange-600 text-white px-3 py-1.5 rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 hover:scale-105 hover:shadow-lg font-medium text-sm shadow-md">
-                  Contact Now
-                </button>
-              </div>
-            </nav>
-          </div>
-        </header>
 
         <div className="pt-8">
           <MessageViewer isDarkMode={isDarkMode} />
@@ -225,63 +173,58 @@ const Index = () => {
       {/* Dark Mode Toggle */}
       <div className="fixed bottom-4 right-4 z-50 bg-white dark:bg-slate-800 rounded-full p-1.5 shadow-lg border border-gray-200 dark:border-slate-700 hover:shadow-xl transition-all duration-300">
         <div className="flex items-center space-x-1">
-          <Sun className={`h-2.5 w-2.5 ${isDarkMode ? 'text-gray-400' : 'text-orange-500'}`} />
+          <Sun className={`h-2.5 w-2.5 ${isDarkMode ? 'text-gray-400' : 'text-blue-800'}`} />
           <Switch
             checked={isDarkMode}
             onCheckedChange={setIsDarkMode}
-            className="data-[state=checked]:bg-orange-500 scale-50"
+            className="data-[state=checked]:bg-blue-800 scale-50"
           />
-          <Moon className={`h-2.5 w-2.5 ${isDarkMode ? 'text-orange-500' : 'text-gray-400'}`} />
+          <Moon className={`h-2.5 w-2.5 ${isDarkMode ? 'text-blue-800' : 'text-gray-400'}`} />
         </div>
       </div>
 
-      {/* Header */}
-      <header className={`shadow-lg sticky top-0 z-40 backdrop-blur-md transition-all duration-500 animate-fade-in ${isDarkMode ? 'bg-slate-800/95 border-b border-slate-700' : 'bg-white/95'}`}>
-        <div className="container mx-auto px-4 py-2">
-          <div className="text-center mb-2">
-            <h1 className={`text-xl md:text-2xl font-bold transition-all duration-500 bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent hover:scale-105 transform cursor-pointer`}>
+      {/* Navigation Bar */}
+      <nav className={`fixed top-0 left-0 right-0 z-40 backdrop-blur-md transition-all duration-500 ${isDarkMode ? 'bg-slate-900/95 border-b border-slate-700' : 'bg-white/95 border-b border-gray-200'} shadow-lg`}>
+        <div className="container mx-auto px-4 py-3">
+          <div className="flex items-center justify-between">
+            <h1 className="text-xl font-bold bg-gradient-to-r from-blue-800 to-blue-600 bg-clip-text text-transparent">
               JOE EXPRESS TECH HUB
             </h1>
-          </div>
-          <nav className="block">
-            <div className="flex justify-center items-center gap-2 md:gap-4 flex-nowrap overflow-x-auto scrollbar-hide">
-              <a href="#home" className={`font-medium transition-all duration-300 hover:scale-105 px-2 md:px-3 py-1.5 rounded-lg whitespace-nowrap text-sm md:text-base ${isDarkMode ? 'text-gray-300 hover:text-orange-400 hover:bg-slate-700/50' : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'}`}>
+            <div className="flex items-center gap-4">
+              <a href="#home" className={`font-medium transition-all duration-300 hover:text-blue-800 ${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700'}`}>
                 Home
               </a>
-              <a href="#about" className={`font-medium transition-all duration-300 hover:scale-105 px-2 md:px-3 py-1.5 rounded-lg whitespace-nowrap text-sm md:text-base ${isDarkMode ? 'text-gray-300 hover:text-orange-400 hover:bg-slate-700/50' : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'}`}>
-                About Us
+              <a href="#about" className={`font-medium transition-all duration-300 hover:text-blue-800 ${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700'}`}>
+                About
               </a>
-              <a href="#programs" className={`font-medium transition-all duration-300 hover:scale-105 px-2 md:px-3 py-1.5 rounded-lg whitespace-nowrap text-sm md:text-base ${isDarkMode ? 'text-gray-300 hover:text-orange-400 hover:bg-slate-700/50' : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'}`}>
+              <a href="#programs" className={`font-medium transition-all duration-300 hover:text-blue-800 ${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700'}`}>
                 Programs
               </a>
-              <button onClick={() => setActiveSection('delivery')} className={`font-medium transition-all duration-300 hover:scale-105 px-2 md:px-3 py-1.5 rounded-lg whitespace-nowrap text-sm md:text-base ${isDarkMode ? 'text-gray-300 hover:text-orange-400 hover:bg-slate-700/50' : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'}`}>
+              <button onClick={() => setActiveSection('delivery')} className={`font-medium transition-all duration-300 hover:text-blue-800 ${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700'}`}>
                 Delivery
               </button>
-              <button onClick={() => setActiveSection('messages')} className={`font-medium transition-all duration-300 hover:scale-105 px-2 md:px-3 py-1.5 rounded-lg whitespace-nowrap text-sm md:text-base ${isDarkMode ? 'text-gray-300 hover:text-orange-400 hover:bg-slate-700/50' : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'}`}>
+              <button onClick={() => setActiveSection('messages')} className={`font-medium transition-all duration-300 hover:text-blue-800 ${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700'}`}>
                 Messages
               </button>
-              <a href="#contact" className={`font-medium transition-all duration-300 hover:scale-105 px-2 md:px-3 py-1.5 rounded-lg whitespace-nowrap text-sm md:text-base ${isDarkMode ? 'text-gray-300 hover:text-orange-400 hover:bg-slate-700/50' : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'}`}>
-                Contact Us
-              </a>
-              <button className="hidden lg:block bg-gradient-to-r from-orange-500 to-orange-600 text-white px-3 py-1.5 rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 hover:scale-105 hover:shadow-lg font-medium text-sm shadow-md">
+              <a href="#contact" className="bg-gradient-to-r from-blue-800 to-blue-600 text-white px-4 py-2 rounded-lg hover:from-blue-900 hover:to-blue-700 transition-all duration-300 hover:scale-105 hover:shadow-lg font-medium">
                 Contact Now
-              </button>
+              </a>
             </div>
-          </nav>
+          </div>
         </div>
-      </header>
+      </nav>
 
-      {/* Hero Slider - Enhanced for larger screens */}
-      <section id="home" className="relative h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/30 via-slate-900/50 to-slate-900/70"></div>
+      {/* Hero Slider with Tech Images */}
+      <section id="home" className="relative h-screen overflow-hidden">
+        <div className="absolute inset-0 transition-all duration-1000">
           <img 
-            src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1920&h=1080&fit=crop&overlay=gradient&opacity=30" 
+            src={slides[currentSlide].bgImage}
             alt="Tech background" 
-            className="w-full h-full object-cover opacity-20"
+            className="w-full h-full object-cover"
           />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-blue-900/70 to-slate-900/80"></div>
         </div>
-        <div className="absolute inset-0 flex items-center justify-center">
+        <div className="absolute inset-0 flex items-center justify-center pt-16">
           <div className="text-center text-white px-4 max-w-7xl animate-fade-in">
             <h2 className="text-3xl md:text-5xl lg:text-7xl xl:text-8xl font-bold mb-6 leading-tight animate-scale-in">
               {slides[currentSlide].title}
@@ -297,8 +240,8 @@ const Index = () => {
                   key={index}
                   className={`px-8 py-4 lg:px-12 lg:py-6 rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl text-lg lg:text-xl ${
                     index === 0
-                      ? 'bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:from-orange-600 hover:to-orange-700 shadow-lg'
-                      : 'border-2 border-orange-500 text-orange-400 hover:bg-orange-500 hover:text-white backdrop-blur-sm'
+                      ? 'bg-gradient-to-r from-blue-800 to-blue-600 text-white hover:from-blue-900 hover:to-blue-700 shadow-lg'
+                      : 'border-2 border-blue-800 text-blue-400 hover:bg-blue-800 hover:text-white backdrop-blur-sm'
                   }`}
                 >
                   {button}
@@ -314,38 +257,38 @@ const Index = () => {
               key={index}
               onClick={() => setCurrentSlide(index)}
               className={`w-4 h-4 rounded-full transition-all duration-300 hover:scale-125 ${
-                currentSlide === index ? 'bg-orange-500 shadow-lg shadow-orange-500/50' : 'bg-white/50 hover:bg-white/70'
+                currentSlide === index ? 'bg-blue-800 shadow-lg shadow-blue-800/50' : 'bg-white/50 hover:bg-white/70'
               }`}
             />
           ))}
         </div>
       </section>
 
-      {/* Mission and Vision - Enhanced for larger screens */}
+      {/* Mission and Vision */}
       <section className={`py-16 lg:py-24 transition-colors duration-300 ${isDarkMode ? 'bg-slate-800' : 'bg-gray-50'}`}>
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 xl:grid-cols-2 gap-8 lg:gap-12 max-w-7xl mx-auto">
             <div className={`text-center transform hover:scale-105 transition-all duration-500 p-8 lg:p-12 rounded-2xl ${isDarkMode ? 'bg-slate-900/50 border border-slate-700/50 shadow-2xl' : 'bg-white shadow-xl hover:shadow-2xl'}`}>
-              <div className="w-16 h-16 lg:w-20 lg:h-20 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+              <div className="w-16 h-16 lg:w-20 lg:h-20 bg-gradient-to-r from-blue-800 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                 <span className="text-2xl lg:text-3xl">🎯</span>
               </div>
               <h3 className={`text-3xl lg:text-4xl font-bold mb-6 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Our Mission</h3>
               <p className={`text-lg lg:text-xl mb-8 leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                 To connect education and technology with innovative and practical tutoring that enhances tech skills....
               </p>
-              <button className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-3 lg:px-10 lg:py-4 rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 hover:scale-105 hover:shadow-lg font-medium text-lg">
+              <button className="bg-gradient-to-r from-blue-800 to-blue-600 text-white px-8 py-3 lg:px-10 lg:py-4 rounded-lg hover:from-blue-900 hover:to-blue-700 transition-all duration-300 hover:scale-105 hover:shadow-lg font-medium text-lg">
                 Learn More
               </button>
             </div>
             <div className={`text-center transform hover:scale-105 transition-all duration-500 p-8 lg:p-12 rounded-2xl ${isDarkMode ? 'bg-slate-900/50 border border-slate-700/50 shadow-2xl' : 'bg-white shadow-xl hover:shadow-2xl'}`}>
-              <div className="w-16 h-16 lg:w-20 lg:h-20 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+              <div className="w-16 h-16 lg:w-20 lg:h-20 bg-gradient-to-r from-blue-800 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                 <span className="text-2xl lg:text-3xl">🚀</span>
               </div>
               <h3 className={`text-3xl lg:text-4xl font-bold mb-6 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Our Vision</h3>
               <p className={`text-lg lg:text-xl mb-8 leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                 Shaping the future of tech—raising brilliant minds and crafting skilled...
               </p>
-              <button className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-3 lg:px-10 lg:py-4 rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 hover:scale-105 hover:shadow-lg font-medium text-lg">
+              <button className="bg-gradient-to-r from-blue-800 to-blue-600 text-white px-8 py-3 lg:px-10 lg:py-4 rounded-lg hover:from-blue-900 hover:to-blue-700 transition-all duration-300 hover:scale-105 hover:shadow-lg font-medium text-lg">
                 Learn More
               </button>
             </div>
@@ -358,9 +301,9 @@ const Index = () => {
         <div className="container mx-auto px-4 max-w-6xl lg:max-w-7xl text-center">
           <h2 className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-12 lg:mb-16 animate-fade-in ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>About Us</h2>
           <div className="mb-12 lg:mb-16 relative group">
-            <div className="absolute -inset-1 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-300"></div>
+            <div className="absolute -inset-1 bg-gradient-to-r from-blue-800 to-blue-600 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-300"></div>
             <img 
-              src="https://images.unsplash.com/photo-1466442929976-97f336a657be?w=800&h=400&fit=crop" 
+              src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&h=400&fit=crop" 
               alt="About us" 
               className="relative w-full max-w-4xl lg:max-w-5xl mx-auto rounded-lg shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105"
             />
@@ -374,7 +317,7 @@ const Index = () => {
             </p>
           </div>
           <div className="mt-10 lg:mt-12">
-            <button className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-10 py-4 lg:px-12 lg:py-5 rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 hover:scale-105 hover:shadow-xl font-medium text-lg lg:text-xl">
+            <button className="bg-gradient-to-r from-blue-800 to-blue-600 text-white px-10 py-4 lg:px-12 lg:py-5 rounded-lg hover:from-blue-900 hover:to-blue-700 transition-all duration-300 hover:scale-105 hover:shadow-xl font-medium text-lg lg:text-xl">
               Get Started
             </button>
           </div>
@@ -402,14 +345,14 @@ const Index = () => {
             <p className={`text-lg lg:text-xl mb-8 lg:mb-10 leading-relaxed max-w-4xl mx-auto ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
               Whether you're an entrepreneur looking to scale, a tech enthusiast eager to explore new frontiers, or someone seeking to upskill, we offer the knowledge, tools, and mentorship to help you thrive in the ever-evolving digital landscape.
             </p>
-            <button className="bg-orange-500 text-white px-8 py-3 lg:px-10 lg:py-4 rounded-lg hover:bg-orange-600 transition-all duration-300 hover:scale-105 hover:shadow-lg text-lg">
+            <button className="bg-gradient-to-r from-blue-800 to-blue-600 text-white px-8 py-3 lg:px-10 lg:py-4 rounded-lg hover:from-blue-900 hover:to-blue-700 transition-all duration-300 hover:scale-105 hover:shadow-lg text-lg">
               Join Us
             </button>
           </div>
         </div>
       </section>
 
-      {/* Programs - Enhanced grid for larger screens */}
+      {/* Programs */}
       <section id="programs" className={`py-20 lg:py-32 transition-colors duration-300 ${isDarkMode ? 'bg-slate-900' : 'bg-white'}`}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 lg:mb-20">
@@ -421,7 +364,7 @@ const Index = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 lg:gap-10">
             {programs.map((program, index) => (
-              <div key={index} className={`group rounded-2xl p-6 lg:p-8 transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:-translate-y-4 ${isDarkMode ? 'bg-slate-800 border border-slate-700 hover:border-orange-500/50' : 'bg-gray-50 hover:bg-white hover:shadow-xl'}`}>
+              <div key={index} className={`group rounded-2xl p-6 lg:p-8 transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:-translate-y-4 ${isDarkMode ? 'bg-slate-800 border border-slate-700 hover:border-blue-800/50' : 'bg-gray-50 hover:bg-white hover:shadow-xl'}`}>
                 <div className="h-52 lg:h-60 rounded-xl mb-6 overflow-hidden relative">
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent z-10"></div>
                   <img 
@@ -430,9 +373,9 @@ const Index = () => {
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
-                <h3 className={`text-xl lg:text-2xl font-bold mb-4 group-hover:text-orange-500 transition-colors duration-300 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>{program.title}</h3>
+                <h3 className={`text-xl lg:text-2xl font-bold mb-4 group-hover:text-blue-800 transition-colors duration-300 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>{program.title}</h3>
                 <p className={`mb-6 leading-relaxed text-sm lg:text-base ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>{program.description}</p>
-                <button className="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-3 lg:py-4 rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 hover:scale-105 font-medium text-lg">
+                <button className="w-full bg-gradient-to-r from-blue-800 to-blue-600 text-white px-6 py-3 lg:py-4 rounded-lg hover:from-blue-900 hover:to-blue-700 transition-all duration-300 hover:scale-105 font-medium text-lg">
                   Learn More
                 </button>
               </div>
@@ -443,9 +386,9 @@ const Index = () => {
 
       {/* Call to Action */}
       <section className="py-20 lg:py-32 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0 opacity-20">
           <img 
-            src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1920&h=1080&fit=crop" 
+            src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=1920&h=1080&fit=crop" 
             alt="Background" 
             className="w-full h-full object-cover"
           />
@@ -463,7 +406,7 @@ const Index = () => {
               Join a community of like-minded learners and industry professionals who are passionate about technology and personal growth. Get the skills, mentorship, and resources you need to thrive in today's digital world.
             </p>
           </div>
-          <button className="bg-orange-500 text-white px-8 py-3 lg:px-12 lg:py-5 rounded-lg hover:bg-orange-600 transition-all duration-300 hover:scale-105 hover:shadow-lg font-semibold text-lg lg:text-xl mt-8 lg:mt-10">
+          <button className="bg-gradient-to-r from-blue-800 to-blue-600 text-white px-8 py-3 lg:px-12 lg:py-5 rounded-lg hover:from-blue-900 hover:to-blue-700 transition-all duration-300 hover:scale-105 hover:shadow-lg font-semibold text-lg lg:text-xl mt-8 lg:mt-10">
             Get Started
           </button>
         </div>
@@ -547,7 +490,7 @@ const Index = () => {
                 <input 
                   type="text" 
                   required 
-                  className={`w-full p-3 lg:p-4 border rounded-lg transition-all duration-300 focus:ring-2 focus:ring-orange-500 focus:border-transparent text-lg ${isDarkMode ? 'bg-slate-800 border-slate-600 text-white' : 'border-gray-300'}`}
+                  className={`w-full p-3 lg:p-4 border rounded-lg transition-all duration-300 focus:ring-2 focus:ring-blue-800 focus:border-transparent text-lg ${isDarkMode ? 'bg-slate-800 border-slate-600 text-white' : 'border-gray-300'}`}
                 />
               </div>
               <div>
@@ -555,7 +498,7 @@ const Index = () => {
                 <input 
                   type="email" 
                   required 
-                  className={`w-full p-3 lg:p-4 border rounded-lg transition-all duration-300 focus:ring-2 focus:ring-orange-500 focus:border-transparent text-lg ${isDarkMode ? 'bg-slate-800 border-slate-600 text-white' : 'border-gray-300'}`}
+                  className={`w-full p-3 lg:p-4 border rounded-lg transition-all duration-300 focus:ring-2 focus:ring-blue-800 focus:border-transparent text-lg ${isDarkMode ? 'bg-slate-800 border-slate-600 text-white' : 'border-gray-300'}`}
                 />
               </div>
             </div>
@@ -566,7 +509,7 @@ const Index = () => {
                 <input 
                   type="tel" 
                   required 
-                  className={`w-full p-3 lg:p-4 border rounded-lg transition-all duration-300 focus:ring-2 focus:ring-orange-500 focus:border-transparent text-lg ${isDarkMode ? 'bg-slate-800 border-slate-600 text-white' : 'border-gray-300'}`}
+                  className={`w-full p-3 lg:p-4 border rounded-lg transition-all duration-300 focus:ring-2 focus:ring-blue-800 focus:border-transparent text-lg ${isDarkMode ? 'bg-slate-800 border-slate-600 text-white' : 'border-gray-300'}`}
                 />
               </div>
               <div>
@@ -574,7 +517,7 @@ const Index = () => {
                 <input 
                   type="text" 
                   required 
-                  className={`w-full p-3 lg:p-4 border rounded-lg transition-all duration-300 focus:ring-2 focus:ring-orange-500 focus:border-transparent text-lg ${isDarkMode ? 'bg-slate-800 border-slate-600 text-white' : 'border-gray-300'}`}
+                  className={`w-full p-3 lg:p-4 border rounded-lg transition-all duration-300 focus:ring-2 focus:ring-blue-800 focus:border-transparent text-lg ${isDarkMode ? 'bg-slate-800 border-slate-600 text-white' : 'border-gray-300'}`}
                 />
               </div>
             </div>
@@ -584,13 +527,13 @@ const Index = () => {
               <textarea 
                 required 
                 rows={5}
-                className={`w-full p-3 lg:p-4 border rounded-lg transition-all duration-300 focus:ring-2 focus:ring-orange-500 focus:border-transparent text-lg ${isDarkMode ? 'bg-slate-800 border-slate-600 text-white' : 'border-gray-300'}`}
+                className={`w-full p-3 lg:p-4 border rounded-lg transition-all duration-300 focus:ring-2 focus:ring-blue-800 focus:border-transparent text-lg ${isDarkMode ? 'bg-slate-800 border-slate-600 text-white' : 'border-gray-300'}`}
               ></textarea>
             </div>
             
             <button 
               type="submit"
-              className="w-full bg-orange-500 text-white py-3 lg:py-4 rounded-lg hover:bg-orange-600 transition-all duration-300 hover:scale-105 font-semibold text-lg lg:text-xl"
+              className="w-full bg-gradient-to-r from-blue-800 to-blue-600 text-white py-3 lg:py-4 rounded-lg hover:from-blue-900 hover:to-blue-700 transition-all duration-300 hover:scale-105 font-semibold text-lg lg:text-xl"
             >
               Submit Message
             </button>
@@ -612,11 +555,11 @@ const Index = () => {
             <div>
               <h3 className="text-xl lg:text-2xl font-bold mb-4 lg:mb-6">Quick Links</h3>
               <ul className="space-y-2 lg:space-y-3">
-                <li><a href="#home" className="text-gray-300 hover:text-orange-400 transition-colors duration-300 text-lg">Home</a></li>
-                <li><a href="#about" className="text-gray-300 hover:text-orange-400 transition-colors duration-300 text-lg">About Us</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-orange-400 transition-colors duration-300 text-lg">Courses</a></li>
-                <li><a href="#programs" className="text-gray-300 hover:text-orange-400 transition-colors duration-300 text-lg">Programs</a></li>
-                <li><a href="#contact" className="text-gray-300 hover:text-orange-400 transition-colors duration-300 text-lg">Contact Us</a></li>
+                <li><a href="#home" className="text-gray-300 hover:text-blue-400 transition-colors duration-300 text-lg">Home</a></li>
+                <li><a href="#about" className="text-gray-300 hover:text-blue-400 transition-colors duration-300 text-lg">About Us</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-blue-400 transition-colors duration-300 text-lg">Courses</a></li>
+                <li><a href="#programs" className="text-gray-300 hover:text-blue-400 transition-colors duration-300 text-lg">Programs</a></li>
+                <li><a href="#contact" className="text-gray-300 hover:text-blue-400 transition-colors duration-300 text-lg">Contact Us</a></li>
               </ul>
             </div>
             
