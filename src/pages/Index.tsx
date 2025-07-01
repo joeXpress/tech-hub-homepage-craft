@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Switch } from '@/components/ui/switch';
 import { Moon, Sun } from 'lucide-react';
@@ -183,37 +182,6 @@ const Index = () => {
         </div>
       </div>
 
-      {/* Navigation Bar */}
-      <nav className={`fixed top-0 left-0 right-0 z-40 backdrop-blur-md transition-all duration-500 ${isDarkMode ? 'bg-slate-900/95 border-b border-slate-700' : 'bg-white/95 border-b border-gray-200'} shadow-lg`}>
-        <div className="container mx-auto px-4 py-3">
-          <div className="flex items-center justify-between">
-            <h1 className="text-xl font-bold bg-gradient-to-r from-blue-800 to-blue-600 bg-clip-text text-transparent">
-              JOE EXPRESS TECH HUB
-            </h1>
-            <div className="flex items-center gap-4">
-              <a href="#home" className={`font-medium transition-all duration-300 hover:text-blue-800 ${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700'}`}>
-                Home
-              </a>
-              <a href="#about" className={`font-medium transition-all duration-300 hover:text-blue-800 ${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700'}`}>
-                About
-              </a>
-              <a href="#programs" className={`font-medium transition-all duration-300 hover:text-blue-800 ${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700'}`}>
-                Programs
-              </a>
-              <button onClick={() => setActiveSection('delivery')} className={`font-medium transition-all duration-300 hover:text-blue-800 ${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700'}`}>
-                Delivery
-              </button>
-              <button onClick={() => setActiveSection('messages')} className={`font-medium transition-all duration-300 hover:text-blue-800 ${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700'}`}>
-                Messages
-              </button>
-              <a href="#contact" className="bg-gradient-to-r from-blue-800 to-blue-600 text-white px-4 py-2 rounded-lg hover:from-blue-900 hover:to-blue-700 transition-all duration-300 hover:scale-105 hover:shadow-lg font-medium">
-                Contact Now
-              </a>
-            </div>
-          </div>
-        </div>
-      </nav>
-
       {/* Hero Slider with Tech Images */}
       <section id="home" className="relative h-screen overflow-hidden">
         <div className="absolute inset-0 transition-all duration-1000">
@@ -240,7 +208,7 @@ const Index = () => {
                   key={index}
                   className={`px-8 py-4 lg:px-12 lg:py-6 rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl text-lg lg:text-xl ${
                     index === 0
-                      ? 'bg-gradient-to-r from-blue-800 to-blue-600 text-white hover:from-blue-900 hover:to-blue-700 shadow-lg'
+                      ? 'bg-gradient-to-r from-blue-900 to-blue-700 text-white hover:from-blue-950 hover:to-blue-800 shadow-lg'
                       : 'border-2 border-blue-800 text-blue-400 hover:bg-blue-800 hover:text-white backdrop-blur-sm'
                   }`}
                 >
