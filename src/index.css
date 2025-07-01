@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -37,19 +38,12 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -99,5 +93,109 @@
 
   body {
     @apply bg-background text-foreground;
+  }
+
+  /* Ensure responsive images */
+  img {
+    @apply max-w-full h-auto;
+  }
+
+  /* Responsive text alignment for headings */
+  h1, h2 {
+    @apply text-left;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Custom responsive utilities */
+  .responsive-container {
+    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .responsive-grid {
+    @apply grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3;
+  }
+
+  .responsive-flex {
+    @apply flex flex-col gap-4 sm:flex-row sm:items-center;
+  }
+
+  /* Ensure proper spacing on mobile */
+  .mobile-padding {
+    @apply px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16;
+  }
+
+  /* Dark blue button override */
+  .btn-dark-blue {
+    @apply bg-blue-900 hover:bg-blue-800 text-white;
+  }
+}
+
+/* Custom animations for better UX */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Ensure carousel images maintain aspect ratio */
+.carousel-image {
+  @apply w-full h-48 sm:h-56 lg:h-64 object-cover;
+}
+
+/* Responsive typography */
+@screen sm {
+  .responsive-text {
+    @apply text-lg;
+  }
+}
+
+@screen lg {
+  .responsive-text {
+    @apply text-xl;
+  }
+}
+
+/* Grid system improvements */
+.grid-responsive {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+}
+
+@screen sm {
+  .grid-responsive {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@screen lg {
+  .grid-responsive {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Flexbox utilities for better responsive design */
+.flex-responsive {
+  @apply flex flex-col gap-4;
+}
+
+@screen sm {
+  .flex-responsive {
+    @apply flex-row items-center justify-between;
   }
 }
