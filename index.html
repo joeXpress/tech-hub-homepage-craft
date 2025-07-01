@@ -1,24 +1,317 @@
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>tech-hub-homepage-craft</title>
-    <meta name="description" content="Lovable Generated Project" />
-    <meta name="author" content="Lovable" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOE EXPRESS TECH HUB</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader" class="preloader">
+        <div class="text-center text-white animate-pulse">
+            <h1 class="text-6xl font-bold mb-4 animate-bounce">JOE EXPRESS</h1>
+            <h2 class="text-3xl font-light animate-fade-in">TECH HUB</h2>
+        </div>
+    </div>
 
-    <meta property="og:title" content="tech-hub-homepage-craft" />
-    <meta property="og:description" content="Lovable Generated Project" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <!-- Dark Mode Toggle -->
+    <div class="dark-mode-toggle">
+        <div class="toggle-container">
+            <svg class="toggle-icon sun" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="5"/>
+                <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+            </svg>
+            <button id="darkModeToggle" class="toggle-button">
+                <div class="toggle-slider"></div>
+            </button>
+            <svg class="toggle-icon moon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+        </div>
+    </div>
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-  </head>
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <img id="heroImage" src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1920&h=1080&fit=crop" alt="Tech background" class="hero-image">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="text-center text-white px-4 max-w-7xl animate-fade-in">
+                <h2 id="heroTitle" class="text-3xl md:text-5xl lg:text-7xl xl:text-8xl font-bold mb-6 leading-tight animate-scale-in">
+                    LEARN GROW AND EXPLORE ENDLESS OPPORTUNITIES!
+                </h2>
+                <p id="heroSubtitle" class="text-lg md:text-xl lg:text-3xl xl:text-4xl mb-8 opacity-90 animate-slide-in-right max-w-5xl mx-auto leading-relaxed">
+                    Join a community of like-minded learners and industry professionals who are passionate about technology and...
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
+                    <button class="btn btn-primary px-8 py-4 lg:px-12 lg:py-6 text-lg lg:text-xl">Join Now</button>
+                    <button class="btn btn-secondary px-8 py-4 lg:px-12 lg:py-6 text-lg lg:text-xl">Learn More</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide-dots">
+            <button class="slide-dot active" data-slide="0"></button>
+            <button class="slide-dot" data-slide="1"></button>
+            <button class="slide-dot" data-slide="2"></button>
+        </div>
+    </section>
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    <!-- Mission and Vision -->
+    <section class="py-16 lg:py-24 bg-gray-50">
+        <div class="container">
+            <div class="grid lg:grid-cols-2 xl:grid-cols-2 gap-8 lg:gap-12 max-w-7xl mx-auto">
+                <div class="text-center transform hover:scale-105 transition-all duration-500 p-8 lg:p-12 rounded-2xl bg-white shadow-xl hover:shadow-2xl">
+                    <div class="w-16 h-16 lg:w-20 lg:h-20 bg-blue-800 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg" style="background: linear-gradient(to right, #1e40af, #2563eb);">
+                        <span class="text-2xl lg:text-3xl">🎯</span>
+                    </div>
+                    <h3 class="text-3xl lg:text-4xl font-bold mb-6 text-gray-800">Our Mission</h3>
+                    <p class="text-lg lg:text-xl mb-8 leading-relaxed text-gray-600">
+                        To connect education and technology with innovative and practical tutoring that enhances tech skills....
+                    </p>
+                    <button class="btn btn-primary text-lg">Learn More</button>
+                </div>
+                <div class="text-center transform hover:scale-105 transition-all duration-500 p-8 lg:p-12 rounded-2xl bg-white shadow-xl hover:shadow-2xl">
+                    <div class="w-16 h-16 lg:w-20 lg:h-20 bg-blue-800 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg" style="background: linear-gradient(to right, #1e40af, #2563eb);">
+                        <span class="text-2xl lg:text-3xl">🚀</span>
+                    </div>
+                    <h3 class="text-3xl lg:text-4xl font-bold mb-6 text-gray-800">Our Vision</h3>
+                    <p class="text-lg lg:text-xl mb-8 leading-relaxed text-gray-600">
+                        Shaping the future of tech—raising brilliant minds and crafting skilled...
+                    </p>
+                    <button class="btn btn-primary text-lg">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us -->
+    <section id="about" class="py-20 lg:py-32 bg-white">
+        <div class="container max-w-6xl lg:max-w-7xl text-center">
+            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-12 lg:mb-16 animate-fade-in text-gray-800">About Us</h2>
+            <div class="mb-12 lg:mb-16 relative group">
+                <div class="absolute -inset-1 bg-blue-800 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-300" style="background: linear-gradient(to right, #1e40af, #2563eb);"></div>
+                <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&h=400&fit=crop" alt="About us" class="relative w-full max-w-4xl lg:max-w-5xl mx-auto rounded-lg shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105">
+            </div>
+            <div class="space-y-6 lg:space-y-8 max-w-5xl mx-auto">
+                <p class="text-lg lg:text-xl leading-relaxed text-gray-600">
+                    JE Tech Hub, officially launched February 2024, marking a new phase of growth and innovation to deliver top-tier tech solutions while empowering individuals and businesses with industry-leading skills.
+                </p>
+                <p class="text-lg lg:text-xl leading-relaxed text-gray-600">
+                    Having several training programs ongoing and approximately 30 graduates...we believe in nurturing creativity, fostering growth, and equipping our community with practical skills to thrive in the digital era.
+                </p>
+            </div>
+            <div class="mt-10 lg:mt-12">
+                <button class="btn btn-primary px-10 py-4 lg:px-12 lg:py-5 text-lg lg:text-xl">Get Started</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Offer -->
+    <section class="py-20 lg:py-32 bg-gray-50">
+        <div class="container max-w-5xl lg:max-w-6xl">
+            <h2 class="text-4xl lg:text-5xl font-bold mb-8 lg:mb-12 text-center text-gray-800">What We Offer</h2>
+            
+            <div class="text-center mb-12 lg:mb-16">
+                <p class="text-xl lg:text-2xl font-semibold mb-6 lg:mb-8 text-gray-800">
+                    Hands-on training and innovative solutions.
+                </p>
+                <p class="text-lg lg:text-xl mb-8 lg:mb-10 leading-relaxed max-w-4xl mx-auto text-gray-600">
+                    Operating under the umbrella of JE Gadgets, our parent brand, which specializes in gadget sales, repairs, and swaps. We pride ourselves on being a leading tech education center that empowers individuals to transform their ideas into impactful, actionable opportunities.
+                </p>
+                <button class="btn btn-green px-8 py-3 lg:px-10 lg:py-4 text-lg">JE Gadgets</button>
+            </div>
+
+            <div class="text-center">
+                <p class="text-lg lg:text-xl mb-8 lg:mb-10 leading-relaxed max-w-4xl mx-auto text-gray-600">
+                    Whether you're an entrepreneur looking to scale, a tech enthusiast eager to explore new frontiers, or someone seeking to upskill, we offer the knowledge, tools, and mentorship to help you thrive in the ever-evolving digital landscape.
+                </p>
+                <button class="btn btn-primary px-8 py-3 lg:px-10 lg:py-4 text-lg">Join Us</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs -->
+    <section id="programs" class="py-20 lg:py-32 bg-white">
+        <div class="container">
+            <div class="text-center mb-16 lg:mb-20">
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 lg:mb-10 text-gray-800">Our Cutting-Edge Programs</h2>
+                <p class="text-lg lg:text-xl max-w-5xl mx-auto leading-relaxed text-gray-600">
+                    We provide practical experience and expert guidance across various tech-driven fields with several ongoing training programs empower you with the skills you need to excel. Check Out Our advanced IT training, software development courses and more.
+                </p>
+            </div>
+
+            <div id="programsContainer" class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 lg:gap-10">
+                <!-- Programs will be rendered here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 lg:py-32 text-white relative overflow-hidden" style="background: linear-gradient(135deg, #0f172a, #1e40af, #1e293b);">
+        <div class="absolute inset-0 opacity-20">
+            <img src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=1920&h=1080&fit=crop" alt="Background" class="w-full h-full object-cover">
+        </div>
+        <div class="container text-center max-w-5xl lg:max-w-6xl relative z-10">
+            <h2 class="text-4xl lg:text-5xl font-bold mb-8 lg:mb-10 animate-fade-in">Ready to Elevate Your Skills?</h2>
+            <div class="space-y-6 lg:space-y-8 text-lg lg:text-xl leading-relaxed">
+                <p>
+                    Whether you're interested in web development, graphic design, data analysis, or other innovative sectors, our tailored courses equip you with the skills needed to excel in today's fast-paced digital landscape.
+                </p>
+                <p>
+                    Our mission goes beyond education—we aim to cultivate a creative, entrepreneurial mindset that prepares you for the future of technology.
+                </p>
+                <p>
+                    Join a community of like-minded learners and industry professionals who are passionate about technology and personal growth. Get the skills, mentorship, and resources you need to thrive in today's digital world.
+                </p>
+            </div>
+            <button class="btn btn-primary px-8 py-3 lg:px-12 lg:py-5 text-lg lg:text-xl mt-8 lg:mt-10">Get Started</button>
+        </div>
+    </section>
+
+    <!-- Delivery Services -->
+    <section class="py-20 lg:py-32 bg-gray-50">
+        <div class="container max-w-5xl lg:max-w-6xl">
+            <h2 class="text-4xl lg:text-5xl font-bold mb-8 lg:mb-12 text-center text-gray-800">Delivery Services</h2>
+            
+            <div class="text-center mb-12 lg:mb-16">
+                <p class="text-xl lg:text-2xl font-semibold mb-6 lg:mb-8 text-gray-800">
+                    We Also Offer reliable delivery services.
+                </p>
+                <div class="space-y-6 lg:space-y-8 text-lg lg:text-xl leading-relaxed max-w-4xl mx-auto">
+                    <p class="text-gray-600">
+                        Explore the world of logistics and deliveries. Learn how to start and operate a successful delivery business, optimize routes, manage orders, and use digital tools to ensure fast and efficient deliveries for e-commerce, food, and courier services.
+                    </p>
+                    <p class="text-gray-600">
+                        Whether you are purchasing or whatever—we ensure that everything arrives at your doorstep or your preferred location.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 lg:gap-6 mb-8 lg:mb-12">
+                <div class="p-4 lg:p-6 rounded-lg shadow text-center transition-all duration-300 hover:scale-105 hover:shadow-lg bg-white">
+                    <span class="font-medium text-sm lg:text-base text-gray-700">Door-To-Door Delivery</span>
+                </div>
+                <div class="p-4 lg:p-6 rounded-lg shadow text-center transition-all duration-300 hover:scale-105 hover:shadow-lg bg-white">
+                    <span class="font-medium text-sm lg:text-base text-gray-700">Office Delivery</span>
+                </div>
+                <div class="p-4 lg:p-6 rounded-lg shadow text-center transition-all duration-300 hover:scale-105 hover:shadow-lg bg-white">
+                    <span class="font-medium text-sm lg:text-base text-gray-700">Food Delivery</span>
+                </div>
+                <div class="p-4 lg:p-6 rounded-lg shadow text-center transition-all duration-300 hover:scale-105 hover:shadow-lg bg-white">
+                    <span class="font-medium text-sm lg:text-base text-gray-700">Motor Park Pickup</span>
+                </div>
+                <div class="p-4 lg:p-6 rounded-lg shadow text-center transition-all duration-300 hover:scale-105 hover:shadow-lg bg-white">
+                    <span class="font-medium text-sm lg:text-base text-gray-700">Motor Park Dropoff</span>
+                </div>
+                <div class="p-4 lg:p-6 rounded-lg shadow text-center transition-all duration-300 hover:scale-105 hover:shadow-lg bg-white">
+                    <span class="font-medium text-sm lg:text-base text-gray-700">Mail Pockets</span>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button id="deliveryButton" class="btn btn-green px-8 py-3 lg:px-10 lg:py-4 text-lg">Book Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 lg:py-32 bg-white">
+        <div class="container">
+            <h2 class="text-4xl lg:text-5xl font-bold mb-16 lg:mb-20 text-center text-gray-800">Testimonials</h2>
+            
+            <div id="testimonialsContainer" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+                <!-- Testimonials will be rendered here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact" class="py-20 lg:py-32 bg-gray-50">
+        <div class="container max-w-3xl lg:max-w-4xl">
+            <h2 class="text-4xl lg:text-5xl font-bold mb-8 lg:mb-12 text-center text-gray-800">Contact Us</h2>
+            
+            <form id="contactForm" class="rounded-lg p-8 lg:p-12 shadow-lg transition-all duration-300 bg-white">
+                <div class="grid md:grid-cols-2 gap-6 lg:gap-8 mb-6 lg:mb-8">
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" name="fullName" required class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" name="email" required class="form-input">
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6 lg:gap-8 mb-6 lg:mb-8">
+                    <div class="form-group">
+                        <label class="form-label">Phone Number</label>
+                        <input type="tel" name="phone" required class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Subject</label>
+                        <input type="text" name="subject" required class="form-input">
+                    </div>
+                </div>
+                
+                <div class="form-group mb-6 lg:mb-8">
+                    <label class="form-label">Message</label>
+                    <textarea name="message" required rows="5" class="form-input"></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary w-full py-3 lg:py-4 text-lg lg:text-xl">Submit Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 lg:py-20 bg-gray-800 text-white">
+        <div class="container">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+                <div>
+                    <h3 class="text-xl lg:text-2xl font-bold mb-4 lg:mb-6">About Us</h3>
+                    <p class="text-gray-300 leading-relaxed text-lg">
+                        JE Tech Hub is dedicated to empowering individuals with cutting-edge technology skills through hands-on training and innovative solutions.
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl lg:text-2xl font-bold mb-4 lg:mb-6">Quick Links</h3>
+                    <ul class="space-y-2 lg:space-y-3">
+                        <li><a href="#home" class="text-gray-300 hover:text-blue-400 transition-colors duration-300 text-lg">Home</a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-blue-400 transition-colors duration-300 text-lg">About Us</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-blue-400 transition-colors duration-300 text-lg">Courses</a></li>
+                        <li><a href="#programs" class="text-gray-300 hover:text-blue-400 transition-colors duration-300 text-lg">Programs</a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-blue-400 transition-colors duration-300 text-lg">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl lg:text-2xl font-bold mb-4 lg:mb-6">Our Services</h3>
+                    <ul class="space-y-2 lg:space-y-3">
+                        <li><span class="text-gray-300 text-lg">Software Development</span></li>
+                        <li><span class="text-gray-300 text-lg">Data Analysis</span></li>
+                        <li><span class="text-gray-300 text-lg">UI/UX Design</span></li>
+                        <li><span class="text-gray-300 text-lg">Forex Trading</span></li>
+                        <li><span class="text-gray-300 text-lg">Graphics & Video</span></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl lg:text-2xl font-bold mb-4 lg:mb-6">Open Hours</h3>
+                    <div class="text-gray-300 space-y-2 lg:space-y-3 text-lg">
+                        <p>Mondays - Fridays: 8.00-20.00</p>
+                        <p>Saturdays: 9.00-18.30</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
 </html>
